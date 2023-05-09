@@ -22,13 +22,16 @@ const config = {
     locales: ['de'],
   },
 
+
+
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: { 
-          routeBasePath: '/',          
+          routeBasePath: '/',  
+          editUrl: "https://github.com/fh-erfurt/ss23-kba-project/tree/main/",     
           remarkPlugins: [
             [
               require("@akebifiky/remark-simple-plantuml"), 

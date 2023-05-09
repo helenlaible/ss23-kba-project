@@ -27,7 +27,15 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: { routeBasePath: '/' },
+        docs: { 
+          routeBasePath: '/',          
+          remarkPlugins: [
+            [
+              require("@akebifiky/remark-simple-plantuml"), 
+              { baseUrl: "https://www.plantuml.com/plantuml/svg" }
+            ]
+          ]
+        },
         blog: false,
       }),
     ],

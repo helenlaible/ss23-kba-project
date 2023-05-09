@@ -8,7 +8,7 @@ const config = {
   title: 'Konzeption betrieblicher Anwendungssysteme',
   favicon: 'img/favicon.ico',
 
-  url: 'https://doesnotexist.com',
+  url: 'https://ss23-kba-project.vercel.app/',
   baseUrl: '/',
 
   organizationName: 'fherfurt',
@@ -27,9 +27,7 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          routeBasePath: '/'
-        },
+        docs: { routeBasePath: '/' },
         blog: false,
       }),
     ],

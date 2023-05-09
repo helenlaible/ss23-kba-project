@@ -1,0 +1,48 @@
+{
+    //! Editor settings
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    },
+    "editor.formatOnSaveMode": "file",
+    "files.autoSave": "onFocusChange",
+    "cSpell.language": "en,de-de",
+  
+    //! Explorer
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": false,
+    "explorer.fileNesting.patterns": {
+      "package.json": ".gitignore,.editorconfig,tsconfig.json,babel.config.js,docusaurus.config.js",
+      "docusaurus.config.js": "sidebars.js"
+    },
+  
+    "files.exclude": {
+      "**/yarn.lock": true,
+      "**/node_modules": true,
+      "**/.docusaurus": true,
+    },
+  
+    //! Formatters
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "[json][json][html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript][javascript]": {
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+  
+    //! Typescript
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+  
+    //! ESLint
+    "eslint.validate": ["javascript", "typescript"],
+    "eslint.probe": ["javascript", "typescript"],
+    "eslint.codeAction.showDocumentation": {
+      "enable": true
+    },
+    "eslint.workingDirectories": ["scripts"]
+  }
+  

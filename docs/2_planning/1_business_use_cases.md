@@ -219,10 +219,26 @@ insurance --> UC2
 left to right direction
 actor Externer_Systemtechniker as es
 package Geraetehersteller {
-  usecase "Gemeldeter Fehlerbericht abarbeiten" as UC1
+  usecase "Gemeldeter Fehlerbericht verwalten" as UC1
 }
 
 es --> UC1
+@enduml
+```
+
+```plantuml BUC Gemeldeter Fehlerbericht verwalten
+@startuml
+left to right direction
+actor Externer_Systemtechniker as es
+package Gemeldeter_Fehlerbericht_verwalten {
+  usecase "Fehlerbericht anzeigen" as UC1
+  usecase "Fehlerbericht bearbeiten" as UC2
+  usecase "Fehlerbericht als erledigt markieren" as UC3
+}
+
+es --> UC1
+es --> UC2
+es --> UC3
 @enduml
 ```
 
@@ -240,6 +256,22 @@ is --> UC1
 @enduml
 ```
 
+```plantuml UC Medizinisches Geraet verwalten
+@startuml
+left to right direction
+actor Interner_Systemtechniker as is
+package Medizinisches_Geraet_verwalten {
+  usecase "Starten" as UC1
+  usecase "Stoppen" as UC2
+  usecase "Konfigurationseinstellungen verwalten" as UC3
+}
+
+is --> UC1
+is --> UC2
+is --> UC3
+@enduml
+```
+
 **Backlog - Lino Becht**
 
 ```plantuml BUC Backlog
@@ -247,9 +279,28 @@ is --> UC1
 left to right direction
 actor Laborpersonal as lb
 package Backlog {
-  usecase "Backlog abarbeiten" as UC1
+  usecase "Backlog verwalten" as UC1
 }
 
 lb --> UC1
+@enduml
+```
+
+```plantuml UC Backlog verwalten
+@startuml
+left to right direction
+actor Laborpersonal as lb
+package Backlog_abarbeiten {
+  usecase "Auftrag anzeigen" as UC1
+  usecase "Auftrag bearbeiten" as UC2
+  usecase "Auftrag als erledigt markieren"as UC3
+  usecase "Ergebnisse an externen Auftraggeber senden" as UC4
+}
+
+lb --> UC1
+lb --> UC2
+lb --> UC3
+
+(UC4) .> (UC3) : extend
 @enduml
 ```

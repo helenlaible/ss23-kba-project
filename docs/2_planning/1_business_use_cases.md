@@ -212,40 +212,44 @@ insurance --> UC2
 (UC4) -- (UC9)
 ```
 
-**Fehlerbenachrichtigungen**
+**Externe Systemtechniker**
 
-```plantuml BUC Fehlerbenachrichtigungen
+```plantuml BUC Geraetehersteller
+@startuml
 left to right direction
-
-actor "Systemtechniker" as technician
-
-package "BUC Fehlerbenachrichtigungen" {
-  usecase "Starten eines medizinischen Systems" as UC1
-  usecase "Systemdiagnose" as UC2
-  usecase "Fehlermeldung bei fehlerhafter Funktion" as UC3
+actor Externer_Systemtechniker as es
+package Geraetehersteller {
+  usecase "Gemeldeter Fehlerbericht abarbeiten" as UC1
 }
 
-technician --> UC1
+es --> UC1
+@enduml
+```
 
-(UC1) .> (UC2) : includes
-(UC3) .> (UC2) : includes
+**Interne Systemtechniker**
+
+```plantuml BUC Geraetehersteller
+@startuml
+left to right direction
+actor Interner_Systemtechniker as is
+package Medizinisches_Geraet {
+  usecase "Medizinisches Geraet verwalten" as UC1
+}
+
+is --> UC1
+@enduml
 ```
 
 **Backlog**
 
 ```plantuml BUC Backlog
+@startuml
 left to right direction
-
-actor "Laborpersonal" as laboratory
-
-package "BUC Backlog" {
-  usecase "Backlog ansehen" as UC1
-  usecase "Auftrag als erledigt markieren" as UC2
-  usecase "Benachrichtigungen an Auftragsteller senden" as UC3
+actor Laborpersonal as lb
+package Backlog {
+  usecase "Backlog abarbeiten" as UC1
 }
 
-technician --> UC1
-
-(UC1) -- (UC2)
-(UC2) .> (UC3) : includes
+lb --> UC1
+@enduml
 ```

@@ -212,7 +212,7 @@ insurance --> UC2
 (UC4) -- (UC9)
 ```
 
-**Externe Systemtechniker**
+**Externe Systemtechniker - Lino Becht**
 
 ```plantuml BUC Geraetehersteller
 @startuml
@@ -226,7 +226,7 @@ es --> UC1
 @enduml
 ```
 
-**Interne Systemtechniker**
+**Interne Systemtechniker - Lino Becht**
 
 ```plantuml BUC Geraetehersteller
 @startuml
@@ -240,7 +240,7 @@ is --> UC1
 @enduml
 ```
 
-**Backlog**
+**Backlog - Lino Becht**
 
 ```plantuml BUC Backlog
 @startuml

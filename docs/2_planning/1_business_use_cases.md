@@ -263,7 +263,8 @@ actor Interner_Systemtechniker as is
 package Medizinisches_Geraet_verwalten {
   usecase "Starten" as UC1
   usecase "Stoppen" as UC2
-  usecase "Konfigurationseinstellungen verwalten" as UC3
+  usecase "Konfigurationseinstellungen anzeigen" as UC3
+  usecase "Konfigurationseinstellungen verwalten" as UC4
 }
 
 is --> UC1

@@ -291,7 +291,7 @@ lb --> UC1
 @startuml
 left to right direction
 actor Laborpersonal as lb
-package Backlog_abarbeiten {
+package Backlog_verwalten {
   usecase "Auftrag anzeigen" as UC1
   usecase "Auftrag bearbeiten" as UC2
   usecase "Auftrag als erledigt markieren"as UC3

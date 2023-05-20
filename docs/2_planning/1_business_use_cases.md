@@ -294,6 +294,7 @@ lb --> UC3
 # System Use Cases
 **Patientendaten pflegen - Antonia**
 
+```plantuml Patientendaten pflege
 @startuml
 left to right direction
 actor "Interne Ärzt:innen" as int_docs
@@ -321,11 +322,12 @@ nurse-->UC1
 
 (UC6).>(UC2) : include
 @enduml
-
+```
 
 
 **Termine pflegen - Antonia**
 
+```plantuml*Termine pflegen
 @startuml
 left to right direction
 actor "Interne Ärzt:innen" as int_docs
@@ -355,9 +357,5 @@ int_docs --> UC1
 
 (UC3).>(UC2) : include
 (UC4).>(UC2) : include
-
-
-
-
-
 @enduml
+```

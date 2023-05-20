@@ -14,37 +14,26 @@ actor "Patient:innen" as patients
 package "BUC Patient:innen" {
   usecase "Arbeitsplan ansehen" as UC1
   usecase "Patientendaten pflegen" as UC2
-  usecase "Patientendaten erweitern" as UC3
-  usecase "Patient suchen" as UC4
+  usecase "Zusätzliche Daten erstellen" as UC3
 
-  usecase "Patientendaten lesen" as UC5
-  usecase "Patienten anlegen" as UC6
-  usecase "Zusätzliche Daten erstellen" as UC7
+  usecase "Übersichtliche Erste-Hilfe-Maßnahmen übergeben" as UC4
+  usecase "Übergabe an Krankenhaus anmelden" as UC5
 
-  usecase "Übersichtliche Erste-Hilfe-Maßnahmen übergeben" as UC8
-  usecase "Übergabe an Krankenhaus anmelden" as UC9
-
-  usecase "Patientendaten anfordern" as UC10
-  usecase "Patientendaten senden" as UC11
+  usecase "Patientendaten anfordern" as UC6
+  usecase "Patientendaten senden" as UC7
 }
 
 nurse --> UC1
 nurse --> UC2
 
-(UC3) .> (UC2) : extend
-(UC4) .> (UC2) : extend
-(UC5) .> (UC2) : extend
-
 int_docs --> UC1
-int_docs --> UC2
-int_docs --> UC6
-int_docs --> UC7
+int_docs --> UC3
 
-rescue --> UC8
-rescue --> UC9
+rescue --> UC4
+rescue --> UC5
 
-ext_docs --> UC10
-ext_docs --> UC11
+ext_docs --> UC6
+ext_docs --> UC7
 
 
 package "BUC Transportdienst" {

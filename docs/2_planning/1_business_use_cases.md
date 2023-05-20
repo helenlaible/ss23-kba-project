@@ -293,3 +293,34 @@ lb --> UC3
 (UC4) .> (UC3) : extend
 @enduml
 ```
+
+# System Use Cases
+**Patientendaten pflegen - Antonia**
+
+@startuml
+left to right direction
+actor "Interne Ärzt:innen" as int_docs
+actor "Externe Ärzt:innen" as ext_docs
+actor "Krankenpfleger:innen" as nurse
+
+
+package "SUC Patientendaten pflegen" {
+  usecase "Patientendaten pflegen" as UC1
+  usecase "Patientendaten erweitern" as UC2
+  usecase "Patient suchen" as UC3
+  usecase "Patientendaten lesen" as UC4
+  usecase "Patient anlegen" as UC5
+  usecase "Patientendaten senden" as UC6
+}
+
+int_docs --> UC1
+ext_docs --> UC6
+nurse-->UC1
+
+(UC2).>(UC1) : extend
+(UC3).>(UC1) : extend
+(UC4).>(UC1) : extend
+(UC5).>(UC1) : extend
+
+(UC6).>(UC2) : include
+@enduml

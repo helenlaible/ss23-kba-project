@@ -208,6 +208,8 @@ package Geraetehersteller {
 }
 
 es --> UC1
+@enduml
+```
 
 **Interne Systemtechniker - Lino Becht**
 

@@ -39,20 +39,17 @@ package "BUC Transportdienst" {
   usecase "Patiententransportplan pflegen" as TUC1
   usecase "Routenplanung lesen" as TUC2
   usecase "Erinnerungen erhalten" as TUC3
-  usecase "Termine eintragen" as TUC4
-  usecase "Termine pflegen (Absagen, verschieben, bestätigen)" as TUC5
-  usecase "Terminübersicht einsehen" as TUC6
+  usecase "Termine pflegen" as TUC4
 }
 
 nurse --> TUC1
 nurse --> TUC2
-nurse --> TUC6
+nurse --> TUC4
 (TUC2) .> (TUC3) : extend
 
-int_docs -->  TUC4
-int_docs --> TUC5
+int_docs --> TUC4
 
-patients --> TUC6
+patients --> TUC4
 ```
 
 **Systemadministrator:innen - Jann Lucas Pischke**
@@ -323,4 +320,44 @@ nurse-->UC1
 (UC5).>(UC1) : extend
 
 (UC6).>(UC2) : include
+@enduml
+
+
+
+**Termine pflegen - Antonia**
+
+@startuml
+left to right direction
+actor "Interne Ärzt:innen" as int_docs
+actor "Patient:innen" as patient
+actor "Krankenpfelger:innen" as nurse
+
+
+
+package "SUC Termine pflegen" {
+  usecase "Termine pflegen" as UC1
+  usecase "Termin bestätigen" as UC2
+  usecase "Termin eintragen" as UC3
+  usecase "Termin verschieben" as UC4
+  usecase "Termin absagen" as UC5
+  usecase "Terminübersicht ansehen" as UC6
+}
+
+int_docs --> UC6
+patient --> UC6
+nurse --> UC6
+
+int_docs --> UC1
+
+(UC3).>(UC1) : extend 
+(UC4).>(UC1) : extend
+(UC5).>(UC1) : extend 
+
+(UC3).>(UC2) : include
+(UC4).>(UC2) : include
+
+
+
+
+
 @enduml

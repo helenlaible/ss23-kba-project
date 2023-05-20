@@ -67,3 +67,62 @@ int_docs --> UC1
 (UC4).>(UC2) : include
 @enduml
 ```
+
+
+**Gemeldeter Fehlerbericht verwalten - Lino Becht**
+
+```plantuml SUC Gemeldeter Fehlerbericht verwalten
+@startuml
+left to right direction
+actor Externer_Systemtechniker as es
+package Gemeldeter_Fehlerbericht_verwalten {
+  usecase "Fehlerbericht anzeigen" as UC1
+  usecase "Fehlerbericht bearbeiten" as UC2
+  usecase "Fehlerbericht als erledigt markieren" as UC3
+}
+
+es --> UC1
+es --> UC2
+es --> UC3
+@enduml
+```
+
+
+**Medizinisches Geraet verwalten - Lino Becht**
+
+```plantuml SUC Medizinisches Geraet verwalten
+@startuml
+left to right direction
+actor Interner_Systemtechniker as is
+package Medizinisches_Geraet_verwalten {
+  usecase "Starten" as UC1
+  usecase "Stoppen" as UC2
+  usecase "Konfigurationseinstellungen anzeigen" as UC3
+  usecase "Konfigurationseinstellungen bearbeiten" as UC4
+}
+
+is --> UC1
+is --> UC2
+is --> UC3
+@enduml
+```
+
+**Backlog verwalten - Lino Becht**
+
+```plantuml SUC Backlog verwalten
+@startuml
+left to right direction
+actor Laborpersonal as lb
+package Backlog_verwalten {
+  usecase "Auftrag anzeigen" as UC1
+  usecase "Auftrag bearbeiten" as UC2
+  usecase "Auftrag als erledigt markieren"as UC3
+  usecase "Ergebnisse an externen Auftraggeber senden" as UC4
+}
+
+lb --> UC1
+lb --> UC2
+lb --> UC3
+
+(UC4) .> (UC3) : extend
+@enduml

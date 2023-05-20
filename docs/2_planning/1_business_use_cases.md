@@ -20,7 +20,6 @@ package "BUC Patient:innen" {
   usecase "Übergabe an Krankenhaus anmelden" as UC5
 
   usecase "Patientendaten anfordern" as UC6
-  usecase "Patientendaten senden" as UC7
 }
 
 nurse --> UC1
@@ -33,7 +32,7 @@ rescue --> UC4
 rescue --> UC5
 
 ext_docs --> UC6
-ext_docs --> UC7
+ext_docs --> UC2
 
 
 package "BUC Transportdienst" {

@@ -126,3 +126,30 @@ lb --> UC3
 
 (UC4) .> (UC3) : extend
 @enduml
+```
+
+**Routenplanung - Helen**
+
+```plantuml Routenplanung
+@startuml
+left to right direction
+
+actor "Krankenpfelger:innen" as nurse
+
+package "SUC PatientenInnen Routenplanung" {
+  usecase "Routenplanung einsehen" as UC1
+  usecase "Terminerinnerung erhalten" as UC2
+  usecase "Routen festlegen" as UC3
+  usecase "Routen ändern" as UC4
+  usecase "Erledigte Routen abhaken" as UC5
+}
+
+nurse --> UC1
+nurse --> UC3
+nurse --> UC5
+
+(UC2).>(UC1) : extend
+(UC3).>(UC4) : include
+
+@enduml
+```

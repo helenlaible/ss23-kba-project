@@ -203,7 +203,7 @@ insurance --> UC2
 @startuml
 left to right direction
 actor Externer_Systemtechniker as es
-package Geraetehersteller {
+package Gerätehersteller {
   usecase "Gemeldeter Fehlerbericht verwalten" as UC1
 }
 
@@ -217,8 +217,8 @@ es --> UC1
 @startuml
 left to right direction
 actor Interner_Systemtechniker as is
-package Medizinisches_Geraet {
-  usecase "Medizinisches Geraet verwalten" as UC1
+package Medizinisches_Gerät {
+  usecase "Medizinisches Gerät verwalten" as UC1
 }
 
 is --> UC1

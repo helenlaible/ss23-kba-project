@@ -94,7 +94,7 @@ es --> UC3
 @startuml
 left to right direction
 actor Interner_Systemtechniker as is
-package Medizinisches_Geraet_verwalten {
+package Medizinisches_Gerät_verwalten {
   usecase "Starten" as UC1
   usecase "Stoppen" as UC2
   usecase "Konfigurationseinstellungen anzeigen" as UC3
@@ -124,7 +124,7 @@ lb --> UC1
 lb --> UC2
 lb --> UC3
 
-(UC4) .> (UC3) : extend
+(UC4) .> (UC2) : extend
 @enduml
 ```
 

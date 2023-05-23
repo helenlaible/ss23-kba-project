@@ -218,7 +218,7 @@ package "SUC Systemüberwachung" {
   usecase "Überwachung von Server und Diensten" as UC8
   usecase "Serverleistung überwachen" as UC9
   usecase "Dienst und Anwendungsleistung überwachen" as UC10
-  usecase "Protokollüberwachung" as UC 11
+  usecase "Protokollüberwachung" as UC11
   usecase "Systemereignisse einsehen" as UC12
   usecase "Fehlerereignisse einsehen" as UC13
   usecase "Warungen einsehen" as UC14 

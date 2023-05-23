@@ -199,4 +199,56 @@ SysAdmin --> UC10
 @enduml
 ```
 
+**Systemüberwachung - Jann**
 
+```plantuml Systemüberwachung
+@startuml
+left to right direction
+actor "Systemadministrator:innen" as SysAdmin
+
+package "SUC Systemüberwachung" {
+
+  usecase "Überwachung der Systemressourcen" as UC1
+  usecase "Hardwareauslastung überwachen" as UC2
+  usecase "Serverressourcen überwachen" as UC3
+  usecase "Überwachung der Netzwerkaktivität" as UC4
+  usecase "Datenverkehr überwachen" as UC5
+  usecase "Bandbreite überwachen" as UC6
+  usecase "Netzwerkstatus überwachen" as UC7
+  usecase "Überwachung von Server und Diensten" as UC8
+  usecase "Serverleistung überwachen" as UC9
+  usecase "Dienst und Anwendungsleistung überwachen" as UC10
+  usecase "Protokollüberwachung" as UC 11
+  usecase "Systemereignisse einsehen" as UC12
+  usecase "Fehlerereignisse einsehen" as UC13
+  usecase "Warungen einsehen" as UC14 
+  usecase "Alarmierung und Benachrichtigungen" as UC15
+  usecase "Überwachungssysteme konfigurieren" as UC16
+  usecase "Alarmbenachrichtigung empfangen" as UC17
+}
+
+SysAdmin --> UC1
+SysAdmin --> UC4
+SysAdmin --> UC8
+SysAdmin --> UC11
+SysAdmin --> UC15
+
+(UC2).>(UC1) : extend
+(UC3).>(UC1) : extend
+
+(UC5).>(UC4) : extend
+(UC6).>(UC4) : extend
+(UC7).>(UC4) : extend
+
+(UC9).>(UC8) : extend
+(UC10).>(UC8) : extend
+
+(UC12).>(UC11) : extend
+(UC13).>(UC11) : extend
+(UC14).>(UC11) : extend
+
+(UC16).>(UC15) : extend
+(UC17).>(UC15) : extend
+
+@enduml
+```

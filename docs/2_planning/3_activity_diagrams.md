@@ -231,3 +231,61 @@ endif
 stop
 @enduml
 ```
+
+
+```plantuml
+@startuml
+start
+:Patient kommt ins Krankenhaus;
+if (Ist es ein Notfall?) then (ja)
+  :Direkte Behandlung;
+  :Nachträgliche Aufnahme und Anlegen der Patientenakte;
+else (nein)
+  :Aufnahme von Patient;
+  if (Hat der Patient einen Termin?) then (ja)
+    :Anlegen der Patientenakte;
+  else (nein)
+    :Termin anfragen;
+    if (Möchte der Patient noch heute behandelt werden?) then (ja)
+      :Anlegen der Patientenakte;
+      :Erhalt einer Wartenummer;
+      :Warten in der Warteschlange;
+    else (nein)
+      :Termin für einen anderen Tag vereinbaren;
+      stop
+    endif
+  endif
+  :Zuweisung zur Klinik;
+  :Behandlung des Patienten;
+endif
+if (Muss der Patient übernachten?) then (ja)
+  if (Sind Zimmer mit Bett frei?) then (ja)
+    :Zuweisung eines Zimmers;
+  else (nein)
+    :Patient wird auf Warteliste gesetzt;
+  endif
+else (nein)
+  :Patient wird entlassen;
+endif
+stop
+@enduml
+```
+
+
+```plantuml
+@startuml
+start
+:Geschäftsführer startet Abteilungsanalyse;
+:Wahl der zu analysierenden Abteilung;
+:Überprüfung der aktuellen Abteilungsstatistiken;
+:Gespräch mit dem Abteilungsleiter;
+if (Gibt es Probleme in der Abteilung?) then (ja)
+  :Problemlösungsstrategie entwickeln;
+else (nein)
+  :Anerkennung der guten Leistung der Abteilung;
+endif
+:Überprüfung und Anpassung der Abteilungsstrategie falls nötig;
+:Feedback an den Abteilungsleiter geben;
+stop
+@enduml
+```

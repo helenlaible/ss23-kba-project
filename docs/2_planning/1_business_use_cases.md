@@ -235,3 +235,77 @@ package Backlog {
 lb --> UC1
 @enduml
 ```
+
+
+```plantuml
+@startuml
+left to right direction
+actor Geschäftsführer
+
+rectangle "Geschäftsführer:innen" {
+  (Übersicht über das Krankenhaus ansehen) as UC1
+  (Listen aller Leistungen verwalten) as UC2
+
+  UC2 <-- (Leistungen einsehen) : <<extend>>
+  UC2 <-- (Leistungen prüfen) : <<extend>>
+
+  UC1 <-- (Auslastung der Krankenhäuser ansehen) : <<extend>>
+  UC1 <-- (Personaldaten verwalten) : <<extend>>
+  UC1 <-- (Patientendaten verwalten) : <<extend>>
+  UC1 <-- (Abteilungsanalyse) : <<extend>>
+}
+
+Geschäftsführer -- UC1
+Geschäftsführer --UC2
+@enduml
+```
+
+```plantuml
+@startuml
+left to right direction
+actor Sekretären
+
+rectangle "Sekretär:innen" {
+  (Formulare/Berichte einreichen) as UC1
+  (Patienten registrieren) as UC2
+  (Erstellen von Terminen) as UC3
+  (Aufnahme von Patienten) as UC4
+
+  UC2 -left-|> UC3 : <<exclude>>
+  UC2 -- UC4 : <<include>>
+}
+
+Sekretären -- UC1
+Sekretären -- UC2
+@enduml
+```
+
+```plantuml
+@startuml
+left to right direction
+actor Krankenkassen
+
+rectangle "Krankenkasse" {
+  (Patientenakten verwalten) as UC1
+  (Abrechnung senden/empfangen) as UC2
+  (Listen aller Leistungen verwalten) as UC3
+
+  UC1 -right-|> (Lesen) : <<exclude>>
+  UC1 -right-|> (Erweitern) : <<exclude>>
+  UC1 -left-|> (Ändern) : <<exclude>>
+
+  UC3 -down-|> (Leistungen einlesen) : <<exclude>>
+  UC3 -down-|> (Leistungen prüfen) : <<exclude>>
+}
+
+actor "Interne Systeme" as InternalSystems
+
+Krankenkassen -- UC1
+Krankenkassen -- UC2
+Krankenkassen -- UC3
+
+InternalSystems -- UC1
+InternalSystems -- UC2
+InternalSystems -- UC3
+@enduml
+```

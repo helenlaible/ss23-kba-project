@@ -39,3 +39,6 @@ Krankenhausinternes Personal, welches für den Umgang mit den verwendeten medizi
 
 **Externe Medizintechnik**
 Externe Dienstleister welche für die Installation, Wartung und den Support für die medizinischen Geräte zuständig sind.
+
+**Zusätzliche (Patienten) Dokumente**
+Zusätzliche (Patienten) Dokumente sind angehängte Dateien wie zB. Röntgenbilder, Blutbilder, ect., die zusätzlich zu den Patientendaten hinzugefügt.

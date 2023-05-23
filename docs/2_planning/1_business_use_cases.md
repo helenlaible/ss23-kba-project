@@ -60,19 +60,16 @@ left to right direction
 actor "Systemadministrator:innen" as g
 
 package "BUC Systemadministrator:innen" {
-  usecase "Logdaten einsehen" as UC1
-  usecase "Berechtigungen verwalten" as UC2
-  usecase "Konfigurationsdaten. verwalten" as UC3
-  usecase "Hardwaredaten einsehen" as UC4
-  usecase "Datenbanklogs einsehen" as UC5
+  usecase "Systemüberwachung" as UC1
+  usecase "Benutzer verwalten" as UC2
+  usecase "Konfigurationsdaten verwalten" as UC3
+  usecase "Installation von Hardware" as UC4
+  usecase "Dokumentation verwalten" as UC5
 }
 
 g --> UC1
 g --> UC2
 g --> UC3
-
-(UC4) .> (UC1) : extend
-(UC5) .> (UC1) : extend
 ```
 
 **Patient:innen - Jann Lucas Pischke** 

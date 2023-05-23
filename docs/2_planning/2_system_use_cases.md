@@ -153,3 +153,50 @@ nurse --> UC5
 
 @enduml
 ```
+
+**Benutzerverwaltung - Jann**
+
+```plantuml Benutzerverwaltung
+@startuml
+left to right direction
+actor "Systemadministrator:innen" as SysAdmin
+
+package "SUC Benutzerverwaltung" {
+
+  usecase "Kontoverwaltung" as UC1
+  usecase "Kontoerstellung" as UC2
+  usecase "Kontoänderung" as UC3
+  usecase "Kontolöschung" as UC4
+  usecase "Zugriffsrechte ändern" as UC5
+  usecase "Passwortverwaltung" as UC6
+  usecase "Passwort anlegen" as UC7
+  usecase "Passwort ändern" as UC8
+  usecase "Passwort einsehen" as UC9
+  usecase "Gruppenrichtlinien verwalten" as UC10
+  usecase "Gruppenrichtlinien anlegen" as UC11
+  usecase "Gruppenrichtlinien ändern" as UC12
+  usecase "Gruppenrichtlinien löschen" as UC13
+  
+}
+
+SysAdmin --> UC1
+SysAdmin --> UC5
+SysAdmin --> UC6
+SysAdmin --> UC10
+
+(UC2).>(UC1) : extend
+(UC3).>(UC1) : extend
+(UC4).>(UC1) : extend
+
+(UC7).>(UC6) : extend
+(UC8).>(UC6) : extend
+(UC9).>(UC6) : extend
+
+(UC11).>(UC10) : extend
+(UC12).>(UC10) : extend
+(UC13).>(UC10) : extend
+
+@enduml
+```
+
+

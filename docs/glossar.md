@@ -46,4 +46,10 @@ Zusätzliche (Patienten) Dokumente sind angehängte Dateien wie zB. Röntgenbild
 **Backlog**
 -- Lino Update --
 
+**Konfiguration (Medizinische Geräte)**
+-- Lino Update --
+
+**Konfiguration (Administratoren)**
+-- Jann Update --
+
 

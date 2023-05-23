@@ -169,7 +169,7 @@ package "SUC Benutzerverwaltung" {
   usecase "Kontolöschung" as UC4
   usecase "Zugriffsrechte ändern" as UC5
   usecase "Passwortverwaltung" as UC6
-  usecase "Passwort anlegen" as UC7
+  usecase "Passwortrichtlinie anlegen" as UC7
   usecase "Passwort ändern" as UC8
   usecase "Passwort einsehen" as UC9
   usecase "Gruppenrichtlinien verwalten" as UC10

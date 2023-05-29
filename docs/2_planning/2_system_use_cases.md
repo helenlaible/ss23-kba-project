@@ -17,18 +17,23 @@ package "SUC Patientendaten pflegen" {
   usecase "Patientendaten lesen" as UC4
   usecase "Patient anlegen" as UC5
   usecase "Patientendaten senden" as UC6
+  usecase "Zusätzliche Daten hinzufügen" as UC7
+  usecase "Befunde hinzufügen" as UC8
 }
 
 int_docs --> UC1
 ext_docs --> UC6
+ext_docs-->UC5
 nurse-->UC1
 
 (UC2).>(UC1) : extend
 (UC3).>(UC1) : extend
 (UC4).>(UC1) : extend
-(UC5).>(UC1) : extend
+(UC7).>(UC1):extend
 
 (UC6).>(UC2) : include
+
+ UC8 -left-|> UC7 
 @enduml
 ```
 

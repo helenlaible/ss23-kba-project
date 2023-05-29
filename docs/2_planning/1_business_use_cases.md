@@ -14,24 +14,22 @@ actor "Patient:innen" as patients
 package "BUC Patient:innen" {
   usecase "Arbeitsplan ansehen" as UC1
   usecase "Patientendaten pflegen" as UC2
-  usecase "Zusätzliche Daten erstellen" as UC3
 
-  usecase "Übersichtliche Erste-Hilfe-Maßnahmen übergeben" as UC4
-  usecase "Übergabe an Krankenhaus anmelden" as UC5
+  usecase "Übersichtliche Erste-Hilfe-Maßnahmen übergeben" as UC3
+  usecase "Übergabe an Krankenhaus anmelden" as UC4
 
-  usecase "Patientendaten anfordern" as UC6
+  usecase "Patientendaten anfordern" as UC5
 }
 
 nurse --> UC1
 nurse --> UC2
 
 int_docs --> UC1
-int_docs --> UC3
 
+rescue --> UC3
 rescue --> UC4
-rescue --> UC5
 
-ext_docs --> UC6
+ext_docs --> UC5
 ext_docs --> UC2
 
 

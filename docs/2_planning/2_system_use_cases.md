@@ -290,6 +290,30 @@ note right of UC5: Der Geschäftsführer und die Krankenkasse kann \n Patientend
 @enduml
 ```
 
+**Leistungsübersicht - Duc Duong Nguyen**
+```plantuml
+@startuml
+left to right direction
+
+actor Geschäftsführer as GF
+
+rectangle "Leistungsübersicht" {
+
+usecase "Personalperformance-Daten abrufen" as UC1
+usecase "Abteilungsleistungs-Report einsehen" as UC2
+usecase "Gerätenutzung prüfen" as UC3
+
+GF -- UC1
+GF -- UC2
+GF -- UC3
+
+note right of UC1: Der Geschäftsführer sieht sich Personalperformance-Daten an, \n um einen Überblick über die Produktivität und Kompetenz des Personals zu erhalten.
+note right of UC2: Der Geschäftsführer liest Abteilungsleistungs-Reports, \n um Informationen über die Effizienz und Kosten jeder Abteilung zu erhalten.
+note right of UC3: Der Geschäftsführer lässt sich Gerätenutzungsdaten anzeigen, \n um den Auslastungsgrad und Wartungsbedarf der medizinischen Geräte zu überblicken.
+@enduml
+```
+
+
 
 **Personaldaten verwalten - Duc Duong Nguyen**
 ```plantuml

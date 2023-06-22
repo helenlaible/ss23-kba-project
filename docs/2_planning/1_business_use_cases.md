@@ -91,107 +91,6 @@ patient --> UC2
 (UC4) .> (UC1) : extend
 ```
 
-**Sekretär:innen**
-
-```plantuml BUC Sekretär:innen
-left to right direction
-
-actor "Sekretär:innen" as secretary
-
-package "BUC Patient:innen" {
-  usecase "Formular/Berichte einreichen" as UC1
-  usecase "Erstellen von Terminen" as UC2
-  usecase "Patienten registrieren" as UC3
-  usecase "Aufnahme von Patienten" as UC4
-  usecase "Erstellen einer Patientennummer" as UC5
-
-  usecase "Aufnahme in normale Klinik" as UC6
-  usecase "Aufnahme in spezielle Klinik" as UC7
-  usecase "Verwaltung der Betten/Zimmer" as UC8
-}
-
-secretary --> UC1
-secretary --> UC2
-secretary --> UC3
-secretary --> UC4
-secretary --> UC5
-
-(UC4) -- (UC6)
-(UC4) -- (UC7)
-(UC6) <. (UC8) : include
-(UC7) <. (UC8) : include
-```
-
-**Geschäftsführer**
-
-```plantuml BUC Geschäftsführer
-left to right direction
-
-actor "Geschäftsführer" as ceo
-
-package "BUC Geschäftsführer" {
-  usecase "Listen aller Leistungen verwalten" as UC1
-  usecase "Übersicht über die Krankenhäuser ansehen" as UC2
-
-  usecase "Leistungen einsehen" as UC3
-  usecase "Leistungen prüfen" as UC4
-
-  usecase "Auslastung der Krankenhäuser ansehen" as UC5
-  usecase "Personaldaten verwalten" as UC6
-  usecase "Patientendaten verwalten" as UC7
-  usecase "Abteilungsanalyse" as UC8
-}
-
-ceo --> UC1
-ceo --> UC2
-
-(UC1) -- (UC3)
-(UC1) -- (UC4)
-
-(UC2) -- (UC5)
-(UC2) -- (UC6)
-(UC2) -- (UC7)
-(UC2) -- (UC8)
-```
-
-**Krankenkasse**
-
-```plantuml BUC Krankenkasse
-left to right direction
-
-actor "Krankenkasse" as insurance
-actor "Interne Systeme" as systems
-
-package "BUC Geschäftsführer" {
-  usecase "Datenaustausch (Schnittstelle)" as UC1
-
-  usecase "Patientenakten verwalten" as UC2
-  usecase "Abrechnung senden/empfangen" as UC3
-  usecase "Listen aller Leistungen verwalten" as UC4
-
-  usecase "lesen" as UC5
-  usecase "erweitern" as UC6
-  usecase "ändern" as UC7
-
-  usecase "Leistungen einsehen" as UC8
-  usecase "Leistungen prüfen" as UC9
-}
-
-systems --> UC1
-insurance --> UC2
-
-(UC1) -- (UC2)
-(UC1) -- (UC3)
-(UC1) -- (UC4)
-
-(UC2) -- (UC5)
-(UC2) -- (UC6)
-(UC2) -- (UC7)
-
-(UC4) -- (UC8)
-(UC4) -- (UC9)
-```
-
 **Externe Systemtechniker - Lino Becht**
 
 ```plantuml BUC Geraetehersteller
@@ -234,14 +133,14 @@ lb --> UC1
 @enduml
 ```
 
-
+**Geschäftsführer: innen - Duc Duong Nguyen**
 ```plantuml
 @startuml
 left to right direction
 actor Geschäftsführer
 
 rectangle "Geschäftsführer:innen" {
-  (Übersicht über das Krankenhaus ansehen) as UC1
+  (Überwachung der Krankenhausleistung) as UC1
   (Listen aller Leistungen verwalten) as UC2
 
   UC2 <-- (Leistungen einsehen) : <<extend>>
@@ -258,6 +157,7 @@ Geschäftsführer --UC2
 @enduml
 ```
 
+**Sekretär:innen - Duc Duong Nguyen**
 ```plantuml
 @startuml
 left to right direction
@@ -278,6 +178,8 @@ Sekretären -- UC2
 @enduml
 ```
 
+
+**Krankenkasse - Duc Duong Nguyen**
 ```plantuml
 @startuml
 left to right direction
@@ -307,3 +209,5 @@ InternalSystems -- UC2
 InternalSystems -- UC3
 @enduml
 ```
+
+

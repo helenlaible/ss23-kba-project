@@ -259,6 +259,7 @@ SysAdmin --> UC15
 ```
 
 **Patientendaten verwalten - Duc Duong Nguyen**
+```plantuml
 @startuml
 left to right direction
 actor Geschäftsführer as GF
@@ -287,9 +288,11 @@ note right of UC3: Der Geschäftsführer kann bestimmte Informationen\n zu Patie
 note right of UC4: Der Geschäftsführer und die Krankenkasse kann \n Patientendatenversenden, beispielsweise an \n anderen/externe Einrichtungen oder andere \n Abteilungen innerhalb des Krankenhauses.
 note right of UC5: Der Geschäftsführer und die Krankenkasse kann \n Patientendaten empfangen, zum Beispiel von \n anderen/externe Einrichtungen, die Patienten \n an das Krankenhaus überweisen, oder von den \n Abteilungen innerhalb des Krankenhauses selbst.
 @enduml
+```
 
 
 **Personaldaten verwalten - Duc Duong Nguyen**
+```plantuml
 @startuml
 left to right direction
 
@@ -320,8 +323,10 @@ note right of UC6: Der Geschäftsführer kann die Position und die\n Abteilungsz
 
 }
 @enduml
+```
 
 **Patientenaufnahme - Duc Duong Nguyen**
+```plantuml
 @startuml
 left to right direction
 
@@ -353,3 +358,4 @@ note right of UC5: Die Sekretär erstellt eine Wartenummer für jeden Patienten,
 note right of UC6: Die Sekretär und der Geschäftsführer überprüfen die Kapazität der Kliniken,\n um sicherzustellen, dass die Kliniken nicht überfüllt sind.
 }
 @enduml
+```

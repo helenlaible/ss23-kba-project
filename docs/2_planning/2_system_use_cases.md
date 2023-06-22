@@ -257,3 +257,99 @@ SysAdmin --> UC15
 
 @enduml
 ```
+
+**Patientendaten verwalten - Duc Duong Nguyen**
+@startuml
+left to right direction
+actor Geschäftsführer as GF
+actor Krankenkasse as K
+
+rectangle "Patientendaten verwalten" {
+
+usecase UC1 as "Patientenakten einsehen"
+usecase UC2 as "Patientenstatistiken überprüfen"
+usecase UC3 as "Patientendaten aktualisieren"
+usecase UC4 as "Patientendaten versenden"
+usecase UC5 as "Patientendaten empfangen"
+
+GF -- UC1
+GF -- UC2
+GF -- UC3
+GF -- UC4
+GF -- UC5
+
+K -- UC4
+K -- UC5
+
+note right of UC1: Der Geschäftsführer kann auf die\nAkten von Patienten zugreifen, um Daten\nfür Berichte oder Analysen zu sammeln.
+note right of UC2: Der Geschäftsführer kann Statistiken überprüfen,\ndie die Anzahl der Patienten, die Länge des\nKrankenhausaufenthalts, ...
+note right of UC3: Der Geschäftsführer kann bestimmte Informationen\n zu Patientendaten aktualisieren(ändern, löschen),\nz. B. Kontaktdaten oder Versicherungsinformationen.
+note right of UC4: Der Geschäftsführer und die Krankenkasse kann \n Patientendatenversenden, beispielsweise an \n anderen/externe Einrichtungen oder andere \n Abteilungen innerhalb des Krankenhauses.
+note right of UC5: Der Geschäftsführer und die Krankenkasse kann \n Patientendaten empfangen, zum Beispiel von \n anderen/externe Einrichtungen, die Patienten \n an das Krankenhaus überweisen, oder von den \n Abteilungen innerhalb des Krankenhauses selbst.
+@enduml
+
+
+**Personaldaten verwalten - Duc Duong Nguyen**
+@startuml
+left to right direction
+
+actor Geschäftsführer as GF
+
+rectangle "Personaldaten verwalten" {
+    
+usecase "Personaldaten anzeigen" as UC1 
+usecase "Personaldaten bearbeiten" as UC2 
+usecase "Neuen Mitarbeiter hinzufügen" as UC3 
+usecase "Mitarbeiter entfernen" as UC4 
+usecase "Kontaktdaten anzeigen" as UC5
+usecase "Position und Abteilung anzeigen" as UC6
+
+GF --> UC1
+GF --> UC2
+GF --> UC3
+GF --> UC4
+GF --> UC5
+GF --> UC6
+
+note right of UC1: Der Geschäftsführer kann die Details jedes Mitarbeiters\n einsehen, einschließlich persönlicher Informationen und\n arbeitsbezogener Details.
+note right of UC2: Der Geschäftsführer kann die Personaldaten aktualisieren,\n z.B. bei Änderungen der Adressen, Abteilung oder\n anderen relevanten Informationen.
+note right of UC3: Der Geschäftsführer kann einen neuen Mitarbeiter zur\n Mitarbeiterdatenbank hinzufügen, wenn eine Neueinstellung erfolgt.
+note right of UC4: Der Geschäftsführer kann einen Mitarbeiter aus der\n Mitarbeiterdatenbank entfernen, wenn dieser das Krankenhaus verlässt.
+note right of UC5: Der Geschäftsführer kann die Kontaktdaten jedes\n Mitarbeiters anzeigen, um bei Bedarf Kontakt aufzunehmen.
+note right of UC6: Der Geschäftsführer kann die Position und die\n Abteilungszugehörigkeit jedes Mitarbeiters anzeigen.
+
+}
+@enduml
+
+**Patientenaufnahme - Duc Duong Nguyen**
+@startuml
+left to right direction
+
+actor Sekretär as S
+actor Geschäftsführer as GF
+rectangle "Patientenaufnahme" {
+
+usecase "Patientendaten erfassen" as UC1
+usecase "Patientenakte anlegen" as UC2
+usecase "Termin anlegen" as UC3
+usecase "Terminänderungen durchführen" as UC4
+usecase "Wartenummer erstellen" as UC5
+usecase "Kapazität der Kliniken überprüfen" as UC6
+
+S --> UC1
+S --> UC2
+S --> UC3
+S --> UC4
+S --> UC5
+S --> UC6
+
+GF --> UC6
+
+note right of UC1: Die Sekretär erfasst die Daten von neuen Patienten\n und fügt sie in das Krankenhausinformationssystem ein.
+note right of UC2: Die Sekretär legt eine neue Patientenakte an,\n sobald ein neuer Patient ins Krankenhaus kommt.
+note right of UC3: Die Sekretär plant Termine für/mit Patienten,\n basierend auf der Verfügbarkeit des medizinischen Personals.
+note right of UC4: Die Sekretär führt Änderungen an bestehenden Terminen durch,\n basierend auf den Anforderungen von Patienten und medizinischem Personal.
+note right of UC5: Die Sekretär erstellt eine Wartenummer für jeden Patienten,\n der auf eine Konsultation oder Behandlung wartet.
+note right of UC6: Die Sekretär und der Geschäftsführer überprüfen die Kapazität der Kliniken,\n um sicherzustellen, dass die Kliniken nicht überfüllt sind.
+}
+@enduml

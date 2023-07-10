@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "private": true,
+  "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "modules/*",
+      "app"
+    ]
+  },
+  "scripts": {
+    "turbo": "turbo run"
+  },
+  "devDependencies": {
+    "turbo": "^1.10.6"
+  }
+}

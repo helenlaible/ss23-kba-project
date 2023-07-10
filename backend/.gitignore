@@ -1,0 +1,15 @@
+# System specific
+.DS_Store
+
+# Dependencies
+node_modules
+
+# Environments
+.env
+
+# Generated output
+dist
+build
+.turbo
+.prisma
+cms

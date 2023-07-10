@@ -10,6 +10,27 @@ Da Skalierbarkeit und Performance eine wichtige Rolle spielen, sollte das ausgew
 
 Der Argumentation zu Grunde liegend kommen folgende Frameworks in Frage. Die eigentliche Entscheidung der Technologien erfolgt sobald genauere Anforderungen an das System spezifiziert wurden: **Sveltekit (Svelte), Nuxt (Vue.js), Next.js (React)**
 
+SvelteKit (Svelte):
+
+- Svelte ist ein kompakteres Framework im Vergleich zu Vue.js und React, da es keinen Virtual DOM verwendet.
+- Es ermöglicht eine effiziente und performante Ausführung, da der Code zur Laufzeit in optimierten JavaScript-Code umgewandelt wird.
+- SvelteKit bietet eine gute Unterstützung für Server-Side Rendering (SSR) und Single-Page Applications (SPA).
+- Es hat eine einfach zu erlernende Syntax und bietet eine reibungslose Integration mit anderen JavaScript-Bibliotheken.
+
+Nuxt (Vue.js):
+
+- Nuxt ist ein Framework, das auf Vue.js basiert und viele vorkonfigurierte Features für die Entwicklung von SSR und SPA bietet.
+- Es bietet eine umfangreiche Dokumentation und eine große Community, was die Unterstützung und das Lernen erleichtert.
+- Nuxt hat eine einfache und intuitive Syntax und ermöglicht eine schnelle Entwicklung von ansprechenden Benutzeroberflächen.
+- Es unterstützt Server-Side Rendering, statische Site-Generierung und Client-Side Rendering.
+
+Next.js (React):
+
+- Next.js ist ein Framework für React und bietet eine umfangreiche Funktionalität für SSR und SPA.
+- Es hat eine aktive und wachsende Community mit vielen Ressourcen und Erweiterungen.
+- Next.js ermöglicht eine einfache und effiziente Server-Side Rendering-Implementierung und bietet eine gute Performance.
+- Es hat eine flexible Konfiguration und unterstützt statische Site-Generierung sowie Client-Side Rendering.
+
 **Backend**
 
 Für das Backend wird eine Microservices-Architektur konzipiert, bei der das System in verschiedene unabhängige Dienste aufgeteilt wird, die jeweils spezifische Funktionen abdecken. Jeder Dienst kann dabei eine klar definierte Aufgabe haben, wie zum Beispiel Benutzerauthentifizierung, Datenbankzugriff oder Integration von Diagnosesystemen. Dies ermöglicht eine bessere Skalierbarkeit, Wartbarkeit und Flexibilität des Systems.

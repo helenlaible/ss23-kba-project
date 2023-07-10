@@ -33,7 +33,7 @@ stop
 @startuml
 start
 
-if (Reagiert das Gerät auf Eingaben?) then (Ja)
+if (Reagiert das medizinisches Gerät auf Eingaben?) then (Ja)
 else (Nein)
   :Fehlerbericht an Herstellerfirma senden;
   stop

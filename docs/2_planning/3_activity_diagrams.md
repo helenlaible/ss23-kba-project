@@ -307,7 +307,6 @@ stop
 **Auslastung der Krankenhäuser ansehen - Duc Duong Nguyen**
 ```plantuml
 @startuml
-title Auslastung der Krankenhäuser ansehen
 
 start
 
@@ -345,7 +344,6 @@ stop
 **Leistungsüberprüfung - Duc Duong Nguyen**
 ```plantuml
 @startuml
-title Leistungsüberprüfung
 
 start
 
@@ -371,7 +369,6 @@ stop
 **Krankenkasse fordert Patientendaten - Duc Duong Nguyen**
 ```plantuml
 @startuml
-title Patientendaten anfordern
 
 start
 

@@ -243,6 +243,8 @@ stop
 ```
 
 
+**Patientenaufnahme - Duc Duong Nguyen**
+
 ```plantuml
 @startuml
 start
@@ -282,6 +284,8 @@ stop
 ```
 
 
+
+**Abteilungsanalyse - Duc Duong Nguyen**
 ```plantuml
 @startuml
 start
@@ -299,3 +303,98 @@ endif
 stop
 @enduml
 ```
+
+**Auslastung der Krankenhäuser ansehen - Duc Duong Nguyen**
+```plantuml
+@startuml
+title Auslastung der Krankenhäuser ansehen
+
+start
+
+:Krankenhausauslastung anzeigen;
+
+split
+  :Prüft die allgemeine Auslastung;
+  if (Gibt es kritische Bereiche?) then (Ja)
+    :Markiert kritische Bereiche;
+  endif
+split again
+  :Prüft die Auslastung nach Abteilungen;
+  if (Gibt es Abteilungen mit hoher Auslastung?) then (Ja)
+    :Markiert Abteilungen mit hoher Auslastung;
+  endif
+split again
+  :Prüft die Auslastung nach Krankenhausbetten;
+  if (Sind Krankenhausbetten knapp?) then (Ja)
+    :Markiert Krankenhausbettenmangel;
+  endif
+end split
+
+:Erstellt einen Auslastungsbericht;
+
+if (Soll der Bericht verschickt werden?) then (Ja)
+  :Verschickt den Bericht an die betroffenen Abteilungen und Mitarbeiter;
+else (Nein)
+  :Behält den Bericht für weitere Analyse und Maßnahmen;
+endif
+
+stop
+@enduml
+```
+
+**Leistungsüberprüfung - Duc Duong Nguyen**
+```plantuml
+@startuml
+title Leistungsüberprüfung
+
+start
+
+:Leistungsüberprüfung durchführen;
+
+:Prüft die Leistung (Geräte, Abteilungen, Mitarbeitern);
+if (Gibt es Geräte/Abteilungen/Mitarbeiter mit geringer Leistung?) then (Ja)
+  :Markiert Geräte/Abteilungen/Mitarbeiter mit geringer Leistung;
+endif
+
+:Erstellt einen Leistungsüberprüfungsbericht;
+
+if (Soll der Bericht verschickt werden?) then (Ja)
+  :Verschickt den Bericht an die betroffenen Abteilungen und Mitarbeiter;
+else (Nein)
+  :Behält den Bericht für weitere Analyse und Maßnahmen;
+endif
+
+stop
+@enduml
+```
+
+**Krankenkasse fordert Patientendaten - Duc Duong Nguyen**
+```plantuml
+@startuml
+title Patientendaten anfordern
+
+start
+
+:Krankenkasse sendet Datenanforderung;
+
+:Das Krankenhaus erhält die Anforderung;
+
+if (Ist die Anforderung gültig?) then (Ja)
+  :Sucht die Patientendaten in der Datenbank;
+  :Verifiziert die gefundenen Daten;
+  if (Sind die Daten korrekt und vollständig?) then (Ja)
+    :Bereitet die Daten für die Übertragung vor;
+    :Erstellt einen Bericht mit den angeforderten Daten;
+:Versendet den Bericht an die Krankenkasse;
+  else (Nein)
+    :Benachrichtigt die Krankenkasse über fehlende oder ungenaue Daten;
+  endif
+else (Nein)
+  :Benachrichtigt die Krankenkasse über eine ungültige Anforderung;
+endif
+
+stop
+@enduml
+```
+
+

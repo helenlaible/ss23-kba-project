@@ -1,6 +1,6 @@
 # ER-diagram
 
-**PlantUML legend**
+**PlantUML relationship legend**
 
 ```plantuml Legend
 @startuml

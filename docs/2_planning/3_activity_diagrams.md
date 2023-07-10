@@ -9,12 +9,16 @@ start
 if (Backlog leer?) then (Ja)
 else (Nein)
   :Auftrag mit höchster Priorität bearbeiten;
-  if (Handelt es sich um einen externen Auftraggeber?) then (Ja)
-    :Ergebnisse elektronisch verschicken;
+  if (Probe verunreinigt?) then (Ja)
+    :Auftraggeber benachrichtigen;
   else (Nein)
-    :Ergebnisse in Ablage legen;
+    if (Handelt es sich um einen externen Auftraggeber?) then (Ja)
+      :Ergebnisse elektronisch verschicken;
+    else (Nein)
+      :Ergebnisse in Akte legen;
+    endif
+    :Auftrag als erledigt markieren;
   endif
-:Auftrag als erledigt markieren;
 endif
 
 stop

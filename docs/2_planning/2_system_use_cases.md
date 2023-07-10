@@ -163,43 +163,39 @@ nurse --> UC5
 
 ```plantuml Benutzerverwaltung
 @startuml
+
 left to right direction
 actor "Systemadministrator:innen" as SysAdmin
 
 package "SUC Benutzerverwaltung" {
 
-  usecase "Kontoverwaltung" as UC1
-  usecase "Kontoerstellung" as UC2
-  usecase "Kontoänderung" as UC3
-  usecase "Kontolöschung" as UC4
-  usecase "Zugriffsrechte ändern" as UC5
-  usecase "Passwortverwaltung" as UC6
-  usecase "Passwortrichtlinie anlegen" as UC7
-  usecase "Passwort ändern" as UC8
-  usecase "Passwort einsehen" as UC9
-  usecase "Gruppenrichtlinien verwalten" as UC10
-  usecase "Gruppenrichtlinien anlegen" as UC11
-  usecase "Gruppenrichtlinien ändern" as UC12
-  usecase "Gruppenrichtlinien löschen" as UC13
+  (Kontoverwaltung) as UC1
+  (Passwortverwaltung) as UC2
+  (Gruppenrichtlinien verwalten) as UC3
+  (Zugriffsrechte verwalten) as UC4
   
+  UC1 <-- (Kontoerstellung): <<extend>>
+  UC1 <-- (Kontoänderung): <<extend>>
+  UC1 <-- (Kontolöschung): <<extend>>
+  
+  UC2 <-- (Passwortrichtlinie anlegen): <<extend>>
+  UC2 <-- (Passwort ändern): <<extend>>
+  UC2 <-- (Passwort einsehen): <<extend>>
+
+  UC3 <-- (Gruppenrichtlinien anlegen): <<extend>>
+  UC3 <-- (Gruppenrichtlinien ändern): <<extend>>
+  UC3 <-- (Gruppenrichtlinien löschen): <<extend>>
+
+  UC4 <-- (Zugriffsrechte anlegen): <<extend>>
+  UC4 <-- (Zugriffsrechte ändern): <<extend>>
+  UC4 <-- (Zugriffsrechte löschen): <<extend>>
+
 }
 
 SysAdmin --> UC1
-SysAdmin --> UC5
-SysAdmin --> UC6
-SysAdmin --> UC10
-
-(UC2).>(UC1) : extend
-(UC3).>(UC1) : extend
-(UC4).>(UC1) : extend
-
-(UC7).>(UC6) : extend
-(UC8).>(UC6) : extend
-(UC9).>(UC6) : extend
-
-(UC11).>(UC10) : extend
-(UC12).>(UC10) : extend
-(UC13).>(UC10) : extend
+SysAdmin --> UC2
+SysAdmin --> UC3
+SysAdmin --> UC4
 
 @enduml
 ```
@@ -208,61 +204,138 @@ SysAdmin --> UC10
 
 ```plantuml Systemüberwachung
 @startuml
+
 left to right direction
 actor "Systemadministrator:innen" as SysAdmin
 
 package "SUC Systemüberwachung" {
 
-  usecase "Überwachung der Systemressourcen" as UC1
-  usecase "Hardwareauslastung überwachen" as UC2
-  usecase "Serverressourcen überwachen" as UC3
-  usecase "Überwachung der Netzwerkaktivität" as UC4
-  usecase "Datenverkehr überwachen" as UC5
-  usecase "Bandbreite überwachen" as UC6
-  usecase "Netzwerkstatus überwachen" as UC7
-  usecase "Überwachung von Server und Diensten" as UC8
-  usecase "Serverleistung überwachen" as UC9
-  usecase "Dienst und Anwendungsleistung überwachen" as UC10
-  usecase "Protokollüberwachung" as UC11
-  usecase "Systemereignisse einsehen" as UC12
-  usecase "Fehlerereignisse einsehen" as UC13
-  usecase "Warungen einsehen" as UC14 
-  usecase "Alarmierung und Benachrichtigungen" as UC15
-  usecase "Überwachungssysteme konfigurieren" as UC16
-  usecase "Alarmbenachrichtigung empfangen" as UC17
+  (Überwachung der Systemressourcen) as UC1
+  (Überwachung der Netzwerkaktivität) as UC2
+  (Überwachung von Server und Diensten) as UC3
+  (Protokollüberwachung) as UC4
+  (Alarmierung und Benachrichtigungen) as UC5
+
+  UC1 <-- (Hardwareauslastung überwachen): <<extend>>
+  UC1 <-- (Serverressourcen überwachen): <<extend>>
+
+  
+  UC2 <-- (Datenverkehr überwachen): <<extend>>
+  UC2 <-- (Bandbreite überwachen): <<extend>>
+  UC2 <-- (Netzwerkstatus überwachen): <<extend>>
+  
+  UC3 <-- (Serverleistung überwachen): <<extend>>
+  UC3 <-- (Dienst und Anwendungsleistung überwachen): <<extend>>
+
+  
+  UC4 <-- (Systemereignisse einsehen): <<extend>>
+  UC4 <-- (Fehlerereignisse einsehen): <<extend>>
+  UC4 <-- (Warungen einsehen): <<extend>>
+  
+  UC5 <-- (Überwachungssysteme konfigurieren): <<extend>>
+  UC5 <-- (Alarmbenachrichtigung empfangen): <<extend>>
+
 }
 
 SysAdmin --> UC1
+SysAdmin --> UC2
+SysAdmin --> UC3
 SysAdmin --> UC4
-SysAdmin --> UC8
-SysAdmin --> UC11
-SysAdmin --> UC15
+SysAdmin --> UC5
 
-(UC2).>(UC1) : extend
-(UC3).>(UC1) : extend
+@enduml
+```
 
-(UC5).>(UC4) : extend
-(UC6).>(UC4) : extend
-(UC7).>(UC4) : extend
+**Konfigurationsdaten verwalten - Jann**
+```plantuml Konfigurationsdaten verwalten
+@startuml
 
-(UC9).>(UC8) : extend
-(UC10).>(UC8) : extend
+left to right direction
+actor "Systemadministrator:innen" as SysAdmin
 
-(UC12).>(UC11) : extend
-(UC13).>(UC11) : extend
-(UC14).>(UC11) : extend
+package "SUC Systemüberwachung" {
 
-(UC16).>(UC15) : extend
-(UC17).>(UC15) : extend
+  (Konfigurationsdaten erfassen) as UC1
+  (Konfigurationsdaten speichern) as UC2
+  (Konfigurationsdaten abrufen) as UC3
+  (Konfigurationsdaten bearbeiten) as UC4
+  (Konfigurationsdaten validieren) as UC5
+  (Konfigurationsdaten zurücksetzen) as UC6
+
+}
+
+SysAdmin --> UC1
+SysAdmin --> UC2
+SysAdmin --> UC3
+SysAdmin --> UC4
+SysAdmin --> UC5
+SysAdmin --> UC6
+
+@enduml
+```
+
+**Installation von Hardware - Jann**
+```plantuml Installation von Hardware
+@startuml
+
+left to right direction
+actor "Systemadministrator:innen" as SysAdmin
+
+package "SUC Installation von Hardware" {
+
+  (Installation) as UC1
+  (Konfigurierung) as UC2
+  (Dokumentation aktualisieren) as UC3
+
+  UC1 <-- (Gerät identifizieren): <<extend>>
+  UC1 <-- (Netzwerk validieren): <<extend>>
+  UC1 <-- (Gerät physisch anschließen): <<extend>>
+
+  UC2 <-- (Netzwerkkonfiguration durchführen): <<extend>>
+  UC2 <-- (Gerät konfigurieren): <<extend>>
+  UC2 <-- (Verbindung testen): <<extend>>
+  
+}
+
+SysAdmin --> UC1
+SysAdmin --> UC2
+SysAdmin --> UC3
+
+@enduml
+```
+
+**Dokumentation verwalten - Jann**
+
+```plantuml Dokumentation verwalten
+@startuml
+
+left to right direction
+actor "Systemadministrator:innen" as SysAdmin
+
+package "SUC Dokumentation verwalten" {
+  (Dokumente erstellen) as UC1
+  (Dokumente bearbeiten) as UC2
+  (Dokumente löschen) as UC3
+  (Dokumente organisieren) as UC4
+  (Dokumente suchen) as UC5
+  (Dokumente freigeben) as UC6
+}
+
+SysAdmin --> UC1
+SysAdmin --> UC2
+SysAdmin --> UC3
+SysAdmin --> UC4
+SysAdmin --> UC5
+SysAdmin --> UC6
 
 @enduml
 ```
 
 **Patientendaten verwalten - Duc Duong Nguyen**
-```plantuml
+```plantuml Patientendaten verwalten
 @startuml
 left to right direction
-actor Geschäftsführer as GF
+actor Geschäftsführer:innen as GF
 actor Krankenkasse as K
 
 rectangle "Patientendaten verwalten" {
@@ -282,20 +355,20 @@ GF -- UC5
 K -- UC4
 K -- UC5
 
-note right of UC1: Der Geschäftsführer kann auf die\nAkten von Patienten zugreifen, um Daten\nfür Berichte oder Analysen zu sammeln.
-note right of UC2: Der Geschäftsführer kann Statistiken überprüfen,\ndie die Anzahl der Patienten, die Länge des\nKrankenhausaufenthalts, ...
-note right of UC3: Der Geschäftsführer kann bestimmte Informationen\n zu Patientendaten aktualisieren(ändern, löschen),\nz. B. Kontaktdaten oder Versicherungsinformationen.
-note right of UC4: Der Geschäftsführer und die Krankenkasse kann \n Patientendatenversenden, beispielsweise an \n anderen/externe Einrichtungen oder andere \n Abteilungen innerhalb des Krankenhauses.
-note right of UC5: Der Geschäftsführer und die Krankenkasse kann \n Patientendaten empfangen, zum Beispiel von \n anderen/externe Einrichtungen, die Patienten \n an das Krankenhaus überweisen, oder von den \n Abteilungen innerhalb des Krankenhauses selbst.
+note right of UC1: Geschäftsführer:innen kann auf die\nAkten von Patient:innen zugreifen, um Daten\nfür Berichte oder Analysen zu sammeln.
+note right of UC2: Geschäftsführer:innen kann Statistiken überprüfen,\ndie die Anzahl der Patient:innen, die Länge des\nKrankenhausaufenthalts, ...
+note right of UC3: Geschäftsführer:innen kann bestimmte Informationen\n zu Patientendaten aktualisieren(ändern, löschen),\nz. B. Kontaktdaten oder Versicherungsinformationen.
+note right of UC4: Geschäftsführer:innen und die Krankenkasse kann \n Patientendatenversenden, beispielsweise an \n anderen/externe Einrichtungen oder andere \n Abteilungen innerhalb des Krankenhauses.
+note right of UC5: Geschäftsführer:innen und die Krankenkasse kann \n Patientendaten empfangen, zum Beispiel von \n anderen/externe Einrichtungen, die Patienten \n an das Krankenhaus überweisen, oder von den \n Abteilungen innerhalb des Krankenhauses selbst.
 @enduml
 ```
 
 **Leistungsübersicht - Duc Duong Nguyen**
-```plantuml
+```plantuml Leistungsübersicht
 @startuml
 left to right direction
 
-actor Geschäftsführer as GF
+actor Geschäftsführer:innen as GF
 
 rectangle "Leistungsübersicht" {
 
@@ -307,16 +380,16 @@ GF -- UC1
 GF -- UC2
 GF -- UC3
 
-note right of UC1: Der Geschäftsführer sieht sich Personalperformance-Daten an, \n um einen Überblick über die Produktivität und Kompetenz des Personals zu erhalten.
-note right of UC2: Der Geschäftsführer liest Abteilungsleistungs-Reports, \n um Informationen über die Effizienz und Kosten jeder Abteilung zu erhalten.
-note right of UC3: Der Geschäftsführer lässt sich Gerätenutzungsdaten anzeigen, \n um den Auslastungsgrad und Wartungsbedarf der medizinischen Geräte zu überblicken.
+note right of UC1: Geschäftsführer:innen sieht sich Personalperformance-Daten an, \n um einen Überblick über die Produktivität und Kompetenz des Personals zu erhalten.
+note right of UC2: Geschäftsführer:innen liest Abteilungsleistungs-Reports, \n um Informationen über die Effizienz und Kosten jeder Abteilung zu erhalten.
+note right of UC3: Geschäftsführer:innen lässt sich Gerätenutzungsdaten anzeigen, \n um den Auslastungsgrad und Wartungsbedarf der medizinischen Geräte zu überblicken.
 @enduml
 ```
 
 
 
 **Personaldaten verwalten - Duc Duong Nguyen**
-```plantuml
+```plantuml Personaldaten verwalten
 @startuml
 left to right direction
 
@@ -338,24 +411,24 @@ GF --> UC4
 GF --> UC5
 GF --> UC6
 
-note right of UC1: Der Geschäftsführer kann die Details jedes Mitarbeiters\n einsehen, einschließlich persönlicher Informationen und\n arbeitsbezogener Details.
-note right of UC2: Der Geschäftsführer kann die Personaldaten aktualisieren,\n z.B. bei Änderungen der Adressen, Abteilung oder\n anderen relevanten Informationen.
-note right of UC3: Der Geschäftsführer kann einen neuen Mitarbeiter zur\n Mitarbeiterdatenbank hinzufügen, wenn eine Neueinstellung erfolgt.
-note right of UC4: Der Geschäftsführer kann einen Mitarbeiter aus der\n Mitarbeiterdatenbank entfernen, wenn dieser das Krankenhaus verlässt.
-note right of UC5: Der Geschäftsführer kann die Kontaktdaten jedes\n Mitarbeiters anzeigen, um bei Bedarf Kontakt aufzunehmen.
-note right of UC6: Der Geschäftsführer kann die Position und die\n Abteilungszugehörigkeit jedes Mitarbeiters anzeigen.
+note right of UC1: Geschäftsführer:innen kann die Details jedes Mitarbeiters\n einsehen, einschließlich persönlicher Informationen und\n arbeitsbezogener Details.
+note right of UC2: Geschäftsführer:innen kann die Personaldaten aktualisieren,\n z.B. bei Änderungen der Adressen, Abteilung oder\n anderen relevanten Informationen.
+note right of UC3: Geschäftsführer:innen kann einen neuen Mitarbeiter zur\n Mitarbeiterdatenbank hinzufügen, wenn eine Neueinstellung erfolgt.
+note right of UC4: Geschäftsführer:innen kann einen Mitarbeiter aus der\n Mitarbeiterdatenbank entfernen, wenn dieser das Krankenhaus verlässt.
+note right of UC5: Geschäftsführer:innen kann die Kontaktdaten jedes\n Mitarbeiters anzeigen, um bei Bedarf Kontakt aufzunehmen.
+note right of UC6: Geschäftsführer:innen kann die Position und die\n Abteilungszugehörigkeit jedes Mitarbeiters anzeigen.
 
 }
 @enduml
 ```
 
 **Patientenaufnahme - Duc Duong Nguyen**
-```plantuml
+```plantuml Patientenaufnahme
 @startuml
 left to right direction
 
-actor Sekretär as S
-actor Geschäftsführer as GF
+actor Sekretär:innen as S
+actor Geschäftsführer:innen as GF
 rectangle "Patientenaufnahme" {
 
 usecase "Patientendaten erfassen" as UC1
@@ -374,12 +447,12 @@ S --> UC6
 
 GF --> UC6
 
-note right of UC1: Die Sekretär erfasst die Daten von neuen Patienten\n und fügt sie in das Krankenhausinformationssystem ein.
-note right of UC2: Die Sekretär legt eine neue Patientenakte an,\n sobald ein neuer Patient ins Krankenhaus kommt.
-note right of UC3: Die Sekretär plant Termine für/mit Patienten,\n basierend auf der Verfügbarkeit des medizinischen Personals.
-note right of UC4: Die Sekretär führt Änderungen an bestehenden Terminen durch,\n basierend auf den Anforderungen von Patienten und medizinischem Personal.
-note right of UC5: Die Sekretär erstellt eine Wartenummer für jeden Patienten,\n der auf eine Konsultation oder Behandlung wartet.
-note right of UC6: Die Sekretär und der Geschäftsführer überprüfen die Kapazität der Kliniken,\n um sicherzustellen, dass die Kliniken nicht überfüllt sind.
+note right of UC1: Sekretär:innen erfasst die Daten von neuen Patienten\n und fügt sie in das Krankenhausinformationssystem ein.
+note right of UC2: Sekretär:innen legt eine neue Patientenakte an,\n sobald ein neuer Patient ins Krankenhaus kommt.
+note right of UC3: Sekretär:innen plant Termine für/mit Patienten,\n basierend auf der Verfügbarkeit des medizinischen Personals.
+note right of UC4: Sekretär:innen führt Änderungen an bestehenden Terminen durch,\n basierend auf den Anforderungen von Patienten und medizinischem Personal.
+note right of UC5: Sekretär:innen erstellt eine Wartenummer für jeden Patienten,\n der auf eine Konsultation oder Behandlung wartet.
+note right of UC6: Sekretär:innen und der Geschäftsführer überprüfen die Kapazität der Kliniken,\n um sicherzustellen, dass die Kliniken nicht überfüllt sind.
 }
 @enduml
 ```

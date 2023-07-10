@@ -1,6 +1,10 @@
 # ER-diagram
 
+**ER-diagram**
+
+```plantuml ER-diagram
 @startuml
+start
 
 entity "Patient" as patient {
     Patienten_ID
@@ -214,4 +218,6 @@ intern_arzt }|--|{ befund
 
 extern_arzt }|--|{ befund
 
+stop
 @enduml
+```

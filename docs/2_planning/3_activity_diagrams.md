@@ -10,7 +10,7 @@ if (Backlog leer?) then (Ja)
 else (Nein)
   :Auftrag mit höchster Priorität bearbeiten;
   if (Probe verunreinigt?) then (Ja)
-    :Auftraggeber benachrichtigen;
+    :Auftraggeber benachrichtigen und im Backlog vermerken;
     stop
   else (Nein)
     if (Handelt es sich um einen externen Auftraggeber?) then (Ja)

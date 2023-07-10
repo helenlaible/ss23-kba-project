@@ -1,8 +1,8 @@
 # Business Use Cases
 
-**Interne & externe Ärzte, Krankenpfleger und Rettungskräfte - Antonia, Helen**
+**Interne & externe Ärzt:innen, Krankenpfleger:innen und Rettungskräfte - Antonia, Helen**
 
-```plantuml BUC Interne & externe Ärzte, Krankenpfleger und Rettungskräfte --
+```plantuml BUC Interne & externe Ärzt:innen, Krankenpfleger:innen und Rettungskräfte --
 left to right direction
 
 actor "Krankenpfleger:innen" as nurse
@@ -58,16 +58,18 @@ left to right direction
 actor "Systemadministrator:innen" as g
 
 package "BUC Systemadministrator:innen" {
-  usecase "Systemüberwachung" as UC1
-  usecase "Benutzer verwalten" as UC2
-  usecase "Konfigurationsdaten verwalten" as UC3
-  usecase "Installation von Hardware" as UC4
-  usecase "Dokumentation verwalten" as UC5
+  (Systemüberwachung) as UC1
+  (Benutzer verwalten) as UC2
+  (Konfigurationsdaten verwalten) as UC3
+  (Installation von Hardware) as UC4
+  (Dokumentation verwalten) as UC5
 }
 
 g --> UC1
 g --> UC2
 g --> UC3
+g --> UC4
+g --> UC5
 ```
 
 **Patient:innen - Jann Lucas Pischke** 
@@ -78,17 +80,15 @@ left to right direction
 actor "Patient:innen" as patient
 
 package "BUC Patient:innen" {
-  usecase "Eigene Krankendaten einsehen" as UC1
-  usecase "Offene Leistungen einsehen" as UC2
-  usecase "Geplante Arzt/Stationstermine einsehen" as UC3
-  usecase "kuratierte Diganose einsehen" as UC4
+  (Eigene Krankendaten einsehen) as UC1
+  (Offene Leistungen einsehen) as UC2
+
+  UC1 <-- (Geplante Arzt/Stationstermine einsehen): <<extend>>
+  UC1 <-- (Kuratierte Diganose einsehen): <<extend>>
 }
 
 patient --> UC1
 patient --> UC2
-
-(UC3) .> (UC1) : extend
-(UC4) .> (UC1) : extend
 ```
 
 **Externe Systemtechniker - Lino Becht**
@@ -105,12 +105,12 @@ es --> UC1
 @enduml
 ```
 
-**Interne Systemtechniker - Lino Becht**
+**Interne Systemtechniker:innen - Lino Becht**
 
 ```plantuml BUC Geraetehersteller
 @startuml
 left to right direction
-actor Interner_Systemtechniker as is
+actor Interner_Systemtechniker:innen as is
 package Medizinisches_Gerät {
   usecase "Medizinisches Gerät verwalten" as UC1
 }
@@ -137,7 +137,7 @@ lb --> UC1
 ```plantuml
 @startuml
 left to right direction
-actor Geschäftsführer
+actor Geschäftsführer:innen
 
 rectangle "Geschäftsführer:innen" {
   (Überwachung der Krankenhausleistung) as UC1
@@ -152,8 +152,8 @@ rectangle "Geschäftsführer:innen" {
   UC1 <-- (Abteilungsanalyse) : <<extend>>
 }
 
-Geschäftsführer -- UC1
-Geschäftsführer --UC2
+Geschäftsführer:innen -- UC1
+Geschäftsführer:innen --UC2
 @enduml
 ```
 
@@ -161,20 +161,20 @@ Geschäftsführer --UC2
 ```plantuml
 @startuml
 left to right direction
-actor Sekretären
+actor Sekretär:innen
 
 rectangle "Sekretär:innen" {
   (Formulare/Berichte einreichen) as UC1
-  (Patienten registrieren) as UC2
+  (Patient:innen registrieren) as UC2
   (Erstellen von Terminen) as UC3
-  (Aufnahme von Patienten) as UC4
+  (Aufnahme von Patient:innen) as UC4
 
   UC2 -left-|> UC3 : <<exclude>>
   UC2 -- UC4 : <<include>>
 }
 
-Sekretären -- UC1
-Sekretären -- UC2
+Sekretär:innen -- UC1
+Sekretär:innen -- UC2
 @enduml
 ```
 

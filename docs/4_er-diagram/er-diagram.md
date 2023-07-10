@@ -1,8 +1,10 @@
 # ER-diagram
 
-# PlantUML legend
+**PlantUML legend**
 
-/*
+```plantuml Legend
+@startuml
+start
 
 | Art              |  Symbol  |
 ---------------------------------
@@ -11,7 +13,10 @@
 | Keine oder Viele |   }o--   |
 | Eine oder Viele  |   }|--   |
 ---------------------------------
-*/
+
+stop
+@enduml
+```
 
 **First version of our ER-diagram**
 

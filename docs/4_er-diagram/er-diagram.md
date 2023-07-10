@@ -1,6 +1,7 @@
 # ER-diagram
 
-**PlantUML legend**
+# PlantUML legend
+
 /*
 
 | Art              |  Symbol  |

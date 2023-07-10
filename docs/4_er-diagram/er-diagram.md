@@ -1,6 +1,6 @@
 # ER-diagram
 
-**ER-diagram**
+**First version of our ER-diagram**
 
 ```plantuml ER-diagram
 @startuml

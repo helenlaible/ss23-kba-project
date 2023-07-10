@@ -1,6 +1,7 @@
 # ER-diagram
 
 **PlantUML legend**
+/*
 
 | Art              |  Symbol  |
 ---------------------------------
@@ -9,6 +10,7 @@
 | Keine oder Viele |   }o--   |
 | Eine oder Viele  |   }|--   |
 ---------------------------------
+*/
 
 **First version of our ER-diagram**
 

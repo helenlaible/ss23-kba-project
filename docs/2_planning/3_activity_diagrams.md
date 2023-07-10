@@ -11,6 +11,7 @@ else (Nein)
   :Auftrag mit höchster Priorität bearbeiten;
   if (Probe verunreinigt?) then (Ja)
     :Auftraggeber benachrichtigen;
+    stop
   else (Nein)
     if (Handelt es sich um einen externen Auftraggeber?) then (Ja)
       :Ergebnisse elektronisch verschicken;

@@ -33,10 +33,15 @@ stop
 @startuml
 start
 
+if (Reagiert das Gerät auf Eingaben?) then (Ja)
+else (Nein)
+  :Fehlerbericht an Herstellerfirma senden;
+  stop
+endif
 :Konfigurationseinstellungen anzeigen;
 if (Sind die Einstellungen für die kommende Untersuchung korrekt?) then (Ja)
 else (Nein)
-:Konfigurationseinstellungen bearbeiten;
+  :Konfigurationseinstellungen bearbeiten;
 endif
 :Untersuchung durchführen;
 

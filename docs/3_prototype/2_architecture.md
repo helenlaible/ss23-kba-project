@@ -31,6 +31,8 @@ Next.js (React):
 - Next.js ermöglicht eine einfache und effiziente Server-Side Rendering-Implementierung und bietet eine gute Performance.
 - Es hat eine flexible Konfiguration und unterstützt statische Site-Generierung sowie Client-Side Rendering.
 
+Basierend auf den Anforderungen des Projektes, würde Next.js am bestens als Frontend-Framework passen. Next.js bietet eine solide Unterstützung für Server-Side Rendering, um die Performance zu optimieren. React und Next.js haben beide eine der größten Communities hinter sich und haben sich schon viele Jahre in der Branche etabliert. Es ist demnach ein stabiles und ausgereiftes Framework.
+
 **Backend**
 
 Für das Backend wird eine Microservices-Architektur konzipiert, bei der das System in verschiedene unabhängige Dienste aufgeteilt wird, die jeweils spezifische Funktionen abdecken. Jeder Dienst kann dabei eine klar definierte Aufgabe haben, wie zum Beispiel Benutzerauthentifizierung, Datenbankzugriff oder Integration von Diagnosesystemen. Dies ermöglicht eine bessere Skalierbarkeit, Wartbarkeit und Flexibilität des Systems.
@@ -40,6 +42,18 @@ Implementiert werden dabei mehrere RESTful APIs, um die Kommunikation zwischen d
 Es müssen noch geeignete Datenbanktechnologien für die Speicherung und Verwaltung von Patientendaten ermittelt werden. Je nach spezifischen Anforderungen des Systems können relationale Datenbanken wie MySQL oder PostgreSQL, NoSQL-Datenbanken wie MongoDB oder eine Kombination verschiedener Datenbanktypen in Betracht gezogen werden. Dies ist Abhängig von den konkreten Anforderungen und Datenmodellen. Falls diese ermittelt wurden, kann eine Aussage über die Datenbank getroffen werden.
 
 Eine sichere Authentifizierung und Zugriffskontrolle, um den Zugriff auf Patientendaten zu kontrollieren sollte oberste Priorität haben. Da es in diesem System um persönliche und gesundheitlich kritische Daten geht, muss ein DSGVO konformer Authentifizierungsdienst nach neusten OAuth 2.0 Standards eingekauft oder selbst implementiert werden. In jedem Fall muss eine sichere und skalierbare Authentifizierungslösung bereitgestellt werden.
+
+Für eine Microservice-Architektur gibt es verschiedene Backend-Frameworks, die sich gut eignen:
+
+- Spring Boot (Java): Spring Boot ist ein Framework für die Entwicklung von Java-basierten Microservices. Es bietet umfangreiche Unterstützung für die Erstellung von Microservices mit einfachen Konfigurationen, integrierter Dependency Injection und einem großen Ökosystem an Bibliotheken und Werkzeugen.
+
+- Fastify (Node.js): Fastify ist ein leichtgewichtiges und flexibles Backend-Framework für Node.js. Es ermöglicht die schnelle Entwicklung von Microservices mit einer einfachen und intuitiven Syntax. Es bietet auch Middleware-Funktionen, die die Erstellung von RESTful APIs erleichtern.
+
+- Flask (Python): Flask ist ein minimalistisches und erweiterbares Framework für die Entwicklung von Python-basierten Microservices. Es ist bekannt für seine einfache und intuitive API und bietet eine gute Unterstützung für die Integration mit anderen Python-Bibliotheken.
+
+- ASP.NET Core (C#): ASP.NET Core ist ein Cross-Plattform-Framework für die Entwicklung von Microservices mit C#. Es bietet eine leistungsfähige und flexible Plattform für die Erstellung von skalierbaren und hochleistungsfähigen Backend-Services. ASP.NET Core unterstützt auch verschiedene Protokolle und bietet umfangreiche Tools und Bibliotheken.
+
+- Ruby on Rails (Ruby): Ruby on Rails ist ein beliebtes Backend-Framework für die Ruby-Programmiersprache. Es bietet eine konventionenbasierte Entwicklungsumgebung und ermöglicht eine schnelle Entwicklung von Microservices. Ruby on Rails unterstützt auch eine Vielzahl von Bibliotheken und bietet eine gute Unterstützung für die Integration von Datenbanken.
 
 **Deployment**
 

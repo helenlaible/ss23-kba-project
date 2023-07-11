@@ -86,15 +86,15 @@ if (Beantragung genehmigt?) then (ja)
     :Zugriffsrechte festlegen;
     :Gruppenrichtlinien zuweisen;
     :Benutzerkonto aktivieren;
-    :Benutzer informieren;
+    :Ersteller:innen informieren;
   else (nein)
     :Fehler bei der Kontoerstellung;
-    :Benutzer informieren;
+    :Ersteller:innen informieren;
     :Kontoerstellung abgelehnt;
   endif
 else (nein)
   :Beantragung abgelehnt;
-  :Benutzer informieren;
+  :Ersteller:innen informieren;
   :Kontoerstellung abgelehnt;
 endif
 
@@ -109,24 +109,28 @@ stop
 start
 
 :Überwachung der Systemressourcen starten;
-:CPU-Auslastung überprüfen;
-if (CPU-Auslastung hoch?) then (ja)
-  :Warnung generieren;
-else (nein)
-  :CPU-Auslastung im normalen Bereich;
-endif
-:Arbeitsspeicher überprüfen;
-if (Arbeitsspeicher-Auslastung hoch?) then (ja)
-  :Warnung generieren;
-else (nein)
-  :Arbeitsspeicher-Auslastung im normalen Bereich;
-endif
-:Festplattenplatz überprüfen;
-if (Verfügbarer Festplattenspeicher niedrig?) then (ja)
-  :Warnung generieren;
-else (nein)
-  :Speicherkapazität im normalen Bereich;
-endif
+fork
+  :CPU-Auslastung überprüfen;
+  if (CPU-Auslastung hoch?) then (ja)
+    :Warnung generieren;
+  else (nein)
+    :CPU-Auslastung im normalen Bereich;
+  endif
+fork again
+  :Arbeitsspeicher überprüfen;
+  if (Arbeitsspeicher-Auslastung hoch?) then (ja)
+    :Warnung generieren;
+  else (nein)
+    :Arbeitsspeicher-Auslastung im normalen Bereich;
+  endif
+fork again
+  :Festplattenplatz überprüfen;
+  if (Verfügbarer Festplattenspeicher niedrig?) then (ja)
+    :Warnung generieren;
+  else (nein)
+    :Speicherkapazität im normalen Bereich;
+  endif
+end fork
 
 stop
 @enduml
@@ -139,25 +143,22 @@ stop
 start
 
 :Überwachung der Netzwerkaktivität starten;
-:Datenverkehr im Netzwerk erfassen;
-if (Ungewöhnlicher Datenverkehr erkannt?) then (ja)
-  :Analyse des ungewöhnlichen Datenverkehrs;
-  :Warnung generieren;
-else (nein)
-  :Kein ungewöhnlicher Datenverkehr erkannt;
-endif
-if (Bandbreitenengpässe erkannt?) then (ja)
-  :Analyse der Bandbreitenengpässe;
-  :Warnung generieren;
-else (nein)
-  :Keine Bandbreitenengpässe erkannt;
-endif
-:Weitere Netzwerkaktivitäten überprüfen;
-if (Probleme erkannt?) then (ja)
-  :Alarm generieren;
-else (nein)
-  :Netzwerkaktivität im normalen Bereich;
-endif
+fork
+  :Datenverkehr im Netzwerk erfassen;
+  if (Ungewöhnlicher Datenverkehr erkannt?) then (ja)
+    :Analyse des ungewöhnlichen Datenverkehrs;
+    :Warnung generieren;
+  else (nein)
+    :Kein ungewöhnlicher Datenverkehr erkannt;
+  endif
+fork again
+  :Weitere Netzwerkaktivitäten überprüfen;
+  if (Probleme erkannt?) then (ja)
+    :Alarm generieren;
+  else (nein)
+    :Netzwerkaktivität im normalen Bereich;
+  endif
+end fork
 
 stop
 @enduml
@@ -170,30 +171,35 @@ stop
 start
 
 :Überwachung von Server und Diensten starten;
-:Status von Webserber überprüfen;
-if (Webserver nicht erreichbar?) then (ja)
-  :Warnung generieren;
-else (nein)
-  :Webserver erreichbar;
-endif
-:Datenbankverbindung überprüfen;
-if (Datenbankverbindung fehlerhaft?) then (ja)
-  :Warnung generieren;
-else (nein)
-  :Datenbankverbindung in Ordnung;
-endif
-:E-Mail Serverstatus überprüfen;
-if (E-Mail Server nicht funktionsfähig) then (ja)
-  :Warnung generieren;
-else (nein)
-  :E-Mail Server funktionsfähig;
-endif
-:Weitere Server und Dienste überprüfen;
-if (Probleme erkannt?) then (ja)
-  :Warnung generieren;
-else (nein)
-  :Server und Dienste funktionieren ordnungsgemäß;
-endif
+fork
+  :Status von Webserver überprüfen;
+  if (Webserver nicht erreichbar?) then (ja)
+    :Warnung generieren;
+  else (nein)
+    :Webserver erreichbar;
+  endif
+fork again
+  :Datenbankverbindung überprüfen;
+  if (Datenbankverbindung fehlerhaft?) then (ja)
+    :Warnung generieren;
+  else (nein)
+    :Datenbankverbindung in Ordnung;
+  endif
+fork again
+  :E-Mail Serverstatus überprüfen;
+  if (E-Mail Server nicht funktionsfähig) then (ja)
+    :Warnung generieren;
+  else (nein)
+    :E-Mail Server funktionsfähig;
+  endif
+fork again
+  :Weitere Server und Dienste überprüfen;
+  if (Probleme erkannt?) then (ja)
+    :Warnung generieren;
+  else (nein)
+    :Server und Dienste funktionieren ordnungsgemäß;
+  endif
+end fork
 
 stop
 @enduml
@@ -210,7 +216,7 @@ start
 :Protokoldateien analysieren;
 if (Anomalien erkannt?) then (ja)
   :Fehler, Warnungen oder Sicherheitsvorfälle identifizieren;
-  :Mapnahmen ergreifen;
+  :Maßnahmen ergreifen;
 else (nein)
   :Keine Anomalien erkannt;
 endif
@@ -224,11 +230,19 @@ stop
 ```plantuml Alarmierung und Benachrichtigungen
 @startuml
 start
-
+fork
 :Überwachungssysteme konfigurieren;
+split
 :Schwellenwerte festlegen;
+split again
 :Alarmierungsregeln definieren;
+split again
 :Benachrichtigungseinstellungen einrichten;
+split again
+:Benachrichtigung erstellen;
+end split
+:Benachrichtigung an Administrator senden;
+fork again
 :Alarmbedingungen überprüfen;
 if (Alarmbedingungen erfüllt?) then (ja)
   :Alarm generieren;
@@ -237,6 +251,7 @@ if (Alarmbedingungen erfüllt?) then (ja)
 else (nein)
   :Keine Alarmbedingungen erfüllt;
 endif
+end fork
 
 stop
 @enduml

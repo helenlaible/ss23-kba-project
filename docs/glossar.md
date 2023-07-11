@@ -52,4 +52,7 @@ Zusätzliche (Patienten) Dokumente sind angehängte Dateien wie zB. Röntgenbild
 **Konfiguration (Administrator:innen)**
 Konfigurationen entsprechend den Unternehmensrichtlinien, den technischen Anforderungen und den Best Practices zu verwalten. Dies beinhaltet Aufgaben wie das Festlegen und Ändern von Konfigurationsoptionen, das Überprüfen und Aktualisieren von Konfigurationsdateien, das Durchführen von Tests und Validierungen, das Beheben von Konfigurationsfehlern und das Erstellen von Backups.
 
+**Offene Leistungen (Patient:innen)**
+Offene Leistungen bezieht sich auf medizinische oder gesundheitsbezogene Dienstleistungen oder Leistungen, die Patient:innen noch zur Verfügung stehen oder noch ausstehen. Diese Leistungen können verschiedene Aspekte der Gesundheitsversorgung umfassen und können sowohl in stationären als auch in ambulanten Einstellungen erbracht werden.
+
 

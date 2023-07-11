@@ -391,7 +391,7 @@ patient --> UC7
 ```plantuml Patientendaten verwalten
 @startuml
 left to right direction
-actor Geschäftsführer:innen as GF
+actor Geschäftsführer as GF
 actor Krankenkasse as K
 
 rectangle "Patientendaten verwalten" {
@@ -424,7 +424,7 @@ note right of UC5: Geschäftsführer:innen und die Krankenkasse kann \n Patiente
 @startuml
 left to right direction
 
-actor Geschäftsführer:innen as GF
+actor Geschäftsführer as GF
 
 rectangle "Leistungsübersicht" {
 
@@ -483,8 +483,8 @@ note right of UC6: Geschäftsführer:innen kann die Position und die\n Abteilung
 @startuml
 left to right direction
 
-actor Sekretär:innen as S
-actor Geschäftsführer:innen as GF
+actor Sekretären as S
+actor Geschäftsführer as GF
 rectangle "Patientenaufnahme" {
 
 usecase "Patientendaten erfassen" as UC1

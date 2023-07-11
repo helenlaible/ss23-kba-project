@@ -1,4 +1,6 @@
-# Authorization Code Flow with Proof Key for Code Exchange (PKCE)
+# Authentication
+
+## Authorization Code Flow with Proof Key for Code Exchange (PKCE)
 
 Der PKCE führt ein von der aufrufenden Anwendung erstelltes Geheimnis ein, das vom Autorisierungsserver überprüft werden kann; dieses Geheimnis wird als Code Verifier bezeichnet. Zusätzlich erstellt die aufrufende Anwendung einen Transformationswert (Code Verifier) und sendet diesen Wert über HTTPS, um einen Autorisierungscode abzurufen. Auf diese Weise kann ein böswilliger Angreifer nur den Autorisierungscode abfangen, ihn nicht ohne den Code-Verifizierer gegen ein Token austauschen.
 
@@ -27,7 +29,7 @@ Der PKCE führt ein von der aufrufenden Anwendung erstelltes Geheimnis ein, das 
 - Die API antwortet mit den angeforderten Daten.
 
 
-# Two Factor Authentification
+## Two Factor Authentification
 
 Das System speichert sehr kritische und sicherheitsrelevante persönenbezogenen Daten. Potentielle Angriffe auf diese Daten müssen unbedingt vermieden und vorgebeugt werden. Dafür wird zusätzlich zu einem von dem Stakeholder gewählten Passwort, eine 2FA eingerichtet. 
 

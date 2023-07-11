@@ -4,7 +4,6 @@
 
 ```plantuml Legend
 @startuml
-start
 
 | Art              |  Symbol  |
 ---------------------------------
@@ -14,7 +13,6 @@ start
 | Eine oder Viele  |   }|--   |
 ---------------------------------
 
-stop
 @enduml
 ```
 
@@ -22,8 +20,6 @@ stop
 
 ```plantuml ER-diagram
 @startuml
-start
-
 entity "Patient" as patient {
     Patienten_ID
     Person_ID
@@ -235,7 +231,5 @@ intern_arzt }|--|{ medikamentenplan
 intern_arzt }|--|{ befund
 
 extern_arzt }|--|{ befund
-
-stop
 @enduml
 ```

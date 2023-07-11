@@ -253,7 +253,7 @@ SysAdmin --> UC5
 left to right direction
 actor "Systemadministrator:innen" as SysAdmin
 
-package "SUC Systemüberwachung" {
+package "SUC Konfigurationsdaten verwalten" {
 
   (Konfigurationsdaten erfassen) as UC1
   (Konfigurationsdaten speichern) as UC2
@@ -327,6 +327,62 @@ SysAdmin --> UC3
 SysAdmin --> UC4
 SysAdmin --> UC5
 SysAdmin --> UC6
+
+@enduml
+```
+
+**Krankendaten einsehen - Jann**
+
+```plantuml Dokumentation verwalten
+@startuml
+
+left to right direction
+actor "Patient:innen" as patient
+
+package "SUC Krankendaten einsehen" {
+  (Kuratierte Diagnosedaten einsehen) as UC1
+  (Termine einsehen) as UC2
+
+  UC1 <-- (Allgemeine Informationen einsehen): <<extend>>
+  UC1 <-- (Diagnose und Behandlung einsehen): <<extend>>
+  UC1 <-- (Laborergebnisse einsehen): <<extend>>
+  UC1 <-- (Medikation einsehen): <<extend>>
+
+  UC2 <-- (Arzttermine einsehen): <<extend>>
+  UC2 <-- (Stationstermine einsehen): <<extend>>
+}
+
+patient --> UC1
+patient --> UC2
+
+@enduml
+```
+
+**Offene Leistungen einsehen - Jann**
+
+```plantuml Offene Leistungen einsehen
+@startuml
+
+left to right direction
+actor "Patient:innen" as patient
+
+package "SUC Offene Leistungen einsehen" {
+  (Geplante Arzttermine einsehen) as UC1
+  (Laboruntersuchungen einsehen) as UC2
+  (Medizinische Prozeduren einsehen) as UC3
+  (Therapiesitzungen einsehen) as UC4
+  (Medikamentenverschreibungen einsehen) as UC5
+  (Diagnostische Untersuchungen einsehen) as UC6
+  (Nachsorge oder Folgetermine einsehen) as UC7
+}
+
+patient --> UC1
+patient --> UC2
+patient --> UC3
+patient --> UC4
+patient --> UC5
+patient --> UC6
+patient --> UC7
 
 @enduml
 ```

@@ -23,7 +23,6 @@
 entity "Patient" as patient {
     Patienten_ID
     Person_ID
-    Adresse_ID
     Ethnie
   + Krankenbett_ID
   + Befund_ID
@@ -205,8 +204,8 @@ person ||--o{ extern_arzt
 person ||--o{ technikpersonal
 person ||--o{ laborpersonal
 person ||--o{ pflegepersonal
+person }|--o{ adresse
 
-patient }|--o{ adresse
 patient }|--o{ abteilung
 patient }|--o{ krankenbett
 patient }|--o{ medikamentenplan

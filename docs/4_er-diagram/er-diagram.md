@@ -456,7 +456,7 @@ person ||--o| laborpersonal
 person ||--o| pflegepersonal
 person }|--|| adresse
 
-abteilung ||--|{ extern_arzt
+abteilung ||--o{ extern_arzt
 abteilung ||--|{ intern_arzt
 abteilung ||--|{ laborpersonal
 abteilung ||--|{ technikpersonal

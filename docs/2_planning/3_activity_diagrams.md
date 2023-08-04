@@ -27,7 +27,34 @@ endif
 stop
 @enduml
 ```
+**Patiententransportplan bearbeiten**
+```plantuml Patiententransportplan bearbeiten
 
+@startuml
+start
+
+:Patiententransportplan bearbeiten;
+if (Termin hinzufügen?) then (ja)
+  :Neuen Transport hinzufügen;
+    :Transportdienst_ID generieren;
+    :Transporttyp festlegen;
+    :Startzeit angeben;
+    :Zielort angeben;
+    :Begleitperson erfassen;
+    :Transportstatus angeben;
+    :Transportdauer angeben;
+    :Transportkosten angeben;
+    :Verantwortlicher erfassen;
+    :Notfalltransport angeben;
+else (nein)
+  :Termin löschen;
+  :Patiententransportplan aktualisieren;
+  :Relevante Personen informieren;
+endif
+
+stop
+@enduml
+```
 
 **Backlog bearbeiten - Lino Becht**
 

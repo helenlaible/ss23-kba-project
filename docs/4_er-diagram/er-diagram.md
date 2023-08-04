@@ -5,10 +5,10 @@
 ```plantuml Legend
 @startuml
 
-!define MULTIPLICITY_ONE_OR_NONE  "1 oder 0"
+!define MULTIPLICITY_ONE_OR_MANY  "1 or many"
 !define MULTIPLICITY_EXACTLY_ONE  "1"
-!define MULTIPLICITY_ZERO_OR_MANY "0..*"
-!define MULTIPLICITY_ONE_OR_MANY  "1..*"
+!define MULTIPLICITY_ZERO_OR_MANY "0..n"
+!define MULTIPLICITY_ONE_OR_MANY  "1..n"
 
 class Art {
 }
@@ -16,9 +16,9 @@ class Art {
 class Symbol {
 }
 
-Art }o--o{ Symbol : MULTIPLICITY_ONE_OR_NONE
-Art }|--|| Symbol : MULTIPLICITY_EXACTLY_ONE
-Art }o--|| Symbol : MULTIPLICITY_ZERO_OR_MANY
+Art |o--o| Symbol : MULTIPLICITY_ONE_OR_NONE
+Art ||--|| Symbol : MULTIPLICITY_EXACTLY_ONE
+Art }o--o{ Symbol : MULTIPLICITY_ZERO_OR_MANY
 Art }|--|{ Symbol : MULTIPLICITY_ONE_OR_MANY
 
 @enduml

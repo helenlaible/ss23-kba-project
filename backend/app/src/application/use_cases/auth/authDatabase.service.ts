@@ -8,6 +8,8 @@ import { HttpException } from '$infrastructure/webserver/types';
 import { removeElementIfExists } from '$application/utils/array';
 import { User } from '$infrastructure/database';
 import { Environment } from '$infrastructure/config';
+import { KeyHandler } from '$application/security/keys';
+import { Encryption } from '$application/security/encryption';
 
 const generateTokenPair = async (id: string, env: Environment) => {
   // Generate a unique refresh id, an access and refresh token pair
@@ -28,7 +30,11 @@ const generateTokenPair = async (id: string, env: Environment) => {
 export const AuthDatabaseService: AuthServiceFactory = ({ env, userService }) => ({
   signUp: async (payload) => {
     const password = await PasswordHash.hash(payload.password);
-    return userService.create({ ...payload, password });
+    const hmacSecret = KeyHandler.generateSecret();
+    return {
+      ...(await userService.create({ email: payload.email, username: payload.username, password, hmacSecret })),
+      hmacSecret: Encryption.encryptPublic(hmacSecret, payload.publicKey),
+    };
   },
 
   signIn: async ({ id, tokens }, refreshCookie) => {

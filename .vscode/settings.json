@@ -9,7 +9,7 @@
     "editor.formatOnSaveMode": "file",
     "files.autoSave": "onFocusChange",
     "cSpell.language": "en,de-de",
-  
+
     //! Explorer
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": false,
@@ -32,13 +32,13 @@
     "material-icon-theme.files.associations": {
       "*.route.ts": "routing"
     },
-  
+
     "files.exclude": {
       "**/yarn.lock": true,
       "**/node_modules": true,
       "**/.docusaurus": true,
     },
-  
+
     //! Formatters
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
     "[json][json][html]": {
@@ -47,17 +47,21 @@
     "[typescript][javascript]": {
       "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
     },
-  
+
     //! Typescript
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "typescript.preferences.importModuleSpecifier": "non-relative",
-  
+
     //! ESLint
     "eslint.validate": ["javascript", "typescript"],
     "eslint.probe": ["javascript", "typescript"],
     "eslint.codeAction.showDocumentation": {
       "enable": true
     },
-    "eslint.workingDirectories": ["scripts"]
+    "eslint.workingDirectories": [
+      "scripts"
+    ],
+    "[prisma]": {
+      "editor.defaultFormatter": "Prisma.prisma"
+    }
   }
-  

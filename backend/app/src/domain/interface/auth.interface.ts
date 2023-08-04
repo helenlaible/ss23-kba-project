@@ -2,6 +2,7 @@ export interface SignUpInterface {
   email: string;
   username: string;
   password: string;
+  publicKey: string;
 }
 
 export interface SignInInterface {

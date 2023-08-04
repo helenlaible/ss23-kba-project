@@ -23,7 +23,7 @@ export type AuthControllerFactory = (s: { authService: AuthService }) => AuthCon
 export const authControllerFactory: AuthControllerFactory = ({ authService }) => ({
   signUp: async (request, reply) => {
     const created = await authService.signUp(request.body as SignUpInterface);
-    return reply.send(mapUserToPublic(created));
+    return reply.send({ ...mapUserToPublic(created), hmacSecret: created.hmacSecret });
   },
 
   signIn: async ({ user, cookies }, reply) => {

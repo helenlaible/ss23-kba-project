@@ -384,53 +384,14 @@ stop
 @startuml
 start
 
-:Offene Leistungen einsehen;
-split
-  if (Geplante Arzttermine einsehen?) then (ja)
-    :Geplante Arzttermine anzeigen;
+:Offene Leistungen auswählen;
+  if (Ausgewählte Leistung einsehen?) then (ja)
+    :Ausgewählte Leistung anzeigen;
   else (nein)
-    :Keine geplanten Arzttermine;
+    :Abbruch;
   endif
-split again
-  if (Laboruntersuchungen einsehen?) then (ja)
-    :Laboruntersuchungen anzeigen;
-  else (nein)
-    :Keine Laboruntersuchungen;
-  endif
-split again
-  if (Medizinische Prozeduren einsehen?) then (ja)
-    :Medizinische Prozeduren anzeigen;
-  else (nein)
-    :Keine medizinischen Prozeduren;
-  endif
-split again
-  if (Therapiesitzungen einsehen?) then (ja)
-    :Therapiesitzungen anzeigen;
-  else (nein)
-    :Keine Therapiesitzungen;
-  endif
-split again
-  if (Medikamentenverschreibungen einsehen?) then (ja)
-    :Medikamentenverschreibungen anzeigen;
-  else (nein)
-    :Keine Medikamentenverschreibungen;
-  endif
-split again
-  if (Diagnostische Untersuchungen einsehen?) then (ja)
-    :Diagnostische Untersuchungen anzeigen;
-  else (nein)
-    :Keine diagnostischen Untersuchungen;
-  endif
-split again
-  if (Nachsorge oder Folgetermine einsehen?) then (ja)
-    :Nachsorge oder Folgetermine anzeigen;
-  else (nein)
-    :Keine Nachsorge oder Folgetermine;
-  endif
-end split
-
-stop
-@enduml
+  stop
+  @enduml
 ```
 
 

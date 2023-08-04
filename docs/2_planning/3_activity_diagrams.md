@@ -258,8 +258,8 @@ stop
 ```
 
 **Dokumentation verwalten - Jann**
-```
-@startuml Dokumentation verwalten
+```plantuml Dokumentation verwalten
+@startuml
 start
 
 fork
@@ -310,8 +310,8 @@ stop
 ```
 
 **Krankendaten einsehen - Jann**
-```
-@startuml Krankendaten einsehen
+```plantuml Krankendaten einsehen
+@startuml
 start
 
 fork
@@ -340,7 +340,7 @@ stop
 ```
 
 **Offene Leistungen einsehen - Jann**
-```
+```plantunml Offene Leistungen einsehen
 @startuml
 start
 
@@ -395,7 +395,7 @@ stop
 
 **Patientenaufnahme - Duc Duong Nguyen**
 
-```plantuml
+```plantuml Patientenaufnahme
 @startuml
 start
 :Patient kommt ins Krankenhaus;
@@ -436,7 +436,7 @@ stop
 
 
 **Abteilungsanalyse - Duc Duong Nguyen**
-```plantuml
+```plantuml Abteilungsanalyse
 @startuml
 start
 :Geschäftsführer startet Abteilungsanalyse;
@@ -455,7 +455,7 @@ stop
 ```
 
 **Auslastung der Krankenhäuser ansehen - Duc Duong Nguyen**
-```plantuml
+```plantuml Auslastung der Krankenhäuser ansehen
 @startuml
 
 start
@@ -492,7 +492,7 @@ stop
 ```
 
 **Leistungsüberprüfung - Duc Duong Nguyen**
-```plantuml
+```plantuml Leistungsüberprüfung
 @startuml
 
 start
@@ -517,7 +517,7 @@ stop
 ```
 
 **Krankenkasse fordert Patientendaten - Duc Duong Nguyen**
-```plantuml
+```plantuml Krankenkasse fordert Patientendaten
 @startuml
 
 start

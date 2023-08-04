@@ -240,3 +240,241 @@ intern_arzt }|--|{ befund
 extern_arzt }|--|{ befund
 @enduml
 ```
+
+**Finalversion of our ER-diagram**
+
+```plantuml ER-diagram
+@startuml
+entity "Patient" as patient {
+    Patienten_ID
+    Person_ID
+    Adresse_ID
+    Ethnie
+  + Krankenbett_ID
+  + Befund_ID
+  + Medikamentenplan_ID
+  + Beeinträchtigungen
+  + Vorerkrankungen
+}
+
+entity "Person" as person {
+    Person_ID
+    Adresse_ID
+    Abteilung_ID
+    Nachname
+    Vorname
+    Geburtsdatum
+  + Geschlecht
+    Kontaktinformationen
+  + Notfallkontakt
+}
+
+entity "Intern_Arzt" as intern_arzt {
+    Intern_Arzt_ID
+    Person_ID
+  + Fachgebiet
+}
+
+entity "Extern_Arzt" as extern_arzt {
+    Extern_Arzt_ID
+    Person_ID
+    Fachgebiet
+}
+
+entity "Technikpersonal" as technikpersonal {
+    Technikpersonal_ID
+    Person_ID
+    Geräte_ID
+    Fachgebiet
+    Qualifikationen
+}
+
+entity "Laborpersonal" as laborpersonal {
+    Laborpersonal_ID
+    Person_ID
+  + Fachgebiet
+}
+
+entity "Pflegepersonal" as pflegepersonal {
+    Pflegepersonal_ID
+    Person_ID
+  + Fachgebiet
+}
+
+entity "Transportdienst" as transportdienst {
+    Transportdienst_ID
+    Transporttyp
+    Startzeit
+    Zielort
+  + Begleitperson
+    Transportstatus
+  + Transportdauer
+  + Transportkosten
+    Verantwortlicher
+    Notfalltransport
+}
+
+entity "Adresse" as adresse {
+    Adresse_ID
+    Straße
+    Hausnummer
+    Postleitzahl
+    Stadt
+    Land
+}
+
+entity "Krankenbett" as krankenbett {
+    Krankenbett_ID
+    Abteilung_ID
+    Zimmertyp
+    Status
+    Reparaturbedarf
+}
+
+entity "Abteilung" as abteilung {
+    Abteilung_ID
+    Name
+    Beschreibung
+    Mitarbeiteranzahl
+  + Spezialgebiet
+    Öffnungszeiten
+    Ausstattung
+}
+
+entity "Backlog" as backlog {
+    Backlog_ID
+    Laborpersonal_ID
+    Beschreibung
+    Priorität
+    Status
+    Eingangsdatum
+  + Fertigstellungsdatum
+    Bearbeitungszeit
+  + Kategorie
+  + Kommentare
+}
+
+entity "Bewältigte_Aufgaben" as bewaeltigte_aufgaben {
+    Aufgaben_ID
+    Intern_Arzt_ID
+    Pflegepersonal_ID
+    Patienten_ID
+    Operations_ID/Leistungs_ID
+    Aufgabenort
+    Datum
+    Uhrzeit
+    Dauer
+  + Komplikationen
+    Diagnose
+    Beschreibung
+  + Bericht
+  + Kommentar
+    Zahlungsstatus
+}
+
+entity "Operation" as operation {
+    Operation_ID
+    Operationstyp
+    Kosten
+    Beschreibung
+}
+
+entity "Leistung" as leistung {
+    Leistung_ID
+    Leistungstyp
+    Kosten
+    Beschreibung
+}
+
+entity "Medikamentenplan" as medikamentenplan {
+    Medikamentenplan_ID
+    Patienten_ID
+    Verantwortlicher
+    Startdatum
+  + Enddatum
+  + Anmerkungen
+}
+
+entity "Medikament" as medikament {
+    Medikament_ID
+    Name
+    Wirkstoff
+    Darreichungsform
+    Anwendungsgebiet
+    Nebenwirkung
+    Wechselwirkung
+    Verschreibungspflicht
+    Hersteller
+  + Verfallsdatum
+    Empfohlene Dosierung
+    Gelagerte_Stückzahl    
+}
+
+entity "Medikamentenplan_Dosierung" as medikamentenplan_dosierung{
+    Medikamentenplan_ID
+    Medikament_ID
+    Dosierung
+    Verabreichungsweg
+    Häufigkeit der Einname
+  + Anmerkung    
+}
+
+entity "Geräte" as geraete {
+    Geräte_ID
+    Technikpersonal_ID
+    Gerätenamen
+    Hersteller
+    Kategorie
+    Wartungsintervall
+    Letzte_Wartung
+    Instandhaltungsstatus
+}
+
+entity "Befund" as befund {
+    Befund_ID
+    Intern_Arzt_ID
+    Datum
+    Befundart
+    Befundergebnis
+    Befundstatus
+  + Befunddokument
+  + Beschreibung
+}
+
+person ||--o| patient
+person ||--o| intern_arzt
+person ||--o| extern_arzt
+person ||--o| technikpersonal
+person ||--o| laborpersonal
+person ||--o| pflegepersonal
+person }|--|| adresse
+person }|--|| abteilung
+
+krankenbett ||--o| patient 
+krankenbett }|--|| abteilung
+
+patient ||--o{ medikamentenplan
+patient ||--o{ befund
+
+bewaeltigte_aufgaben }o--o| intern_arzt
+bewaeltigte_aufgaben }o--o| pflegepersonal
+bewaeltigte_aufgaben }|--|| patient
+bewaeltigte_aufgaben }o--o| operation
+bewaeltigte_aufgaben }o--o| leistung
+
+transportdienst ||--|{ patient
+
+geraete }|--|| technikpersonal 
+
+backlog }o--|| laborpersonal
+
+medikamentenplan_dosierung }|--|| medikament 
+medikamentenplan_dosierung }|--|| medikamentenplan
+
+intern_arzt ||--|{ medikamentenplan
+intern_arzt ||--|{ befund
+
+extern_arzt ||--|{ befund
+extern_arzt ||--|{ medikamentenplan
+@enduml
+```

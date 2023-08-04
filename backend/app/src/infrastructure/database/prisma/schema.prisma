@@ -14,11 +14,6 @@ model User {
   username String   @unique
   password String
   tokens   String[] @default([])
-
-  sandboxCreated  Boolean  @default(false)
-  sandboxPassword String   @default(uuid())
-  sandboxHistory  String[] @default([])
-
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())

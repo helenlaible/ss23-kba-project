@@ -38,16 +38,4 @@ export const UserDatabaseService: UserServiceFactory = ({ db }) => ({
 
     return db.user.update({ where: { id }, data: { tokens } });
   },
-
-  addSandboxQueryToHistory: async (id, query) => {
-    return db.user.update({ where: { id }, data: { sandboxHistory: { push: query } } });
-  },
-
-  flushSandboxHistory: async (id) => {
-    return db.user.update({ where: { id }, data: { sandboxHistory: [] } });
-  },
-
-  toggleSandboxCreated: async (id) => {
-    return db.user.update({ where: { id }, data: { sandboxCreated: true } });
-  },
 });

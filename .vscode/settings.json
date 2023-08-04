@@ -14,8 +14,23 @@
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": false,
     "explorer.fileNesting.patterns": {
-      "package.json": ".gitignore,.editorconfig,tsconfig.json,babel.config.js,docusaurus.config.js",
-      "docusaurus.config.js": "sidebars.js"
+      "package.json": ".gitignore,.editorconfig,tsconfig.json,babel.config.js,docusaurus.config.js,.env",
+      "docusaurus.config.js": "sidebars.js",
+      "Taskfile.yml": "turbo.json"
+    },
+
+    "material-icon-theme.folders.associations": {
+      "infrastructure": "cluster",
+      "webserver": "server",
+      "application": "app",
+      "auth": "",
+      "use_cases": "interface",
+      "domain": "public",
+      "dto": "class",
+      "mixins": "decorators"
+    },
+    "material-icon-theme.files.associations": {
+      "*.route.ts": "routing"
     },
   
     "files.exclude": {

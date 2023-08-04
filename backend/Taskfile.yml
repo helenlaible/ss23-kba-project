@@ -1,9 +1,16 @@
-version: '3'
+version: "3"
 
 tasks:
   default:
     cmds:
       - task --list
+
+  backend:
+    desc: Runs the docker compose command for the backend (up, down, build)
+    cmds:
+      - if [ {{.CLI_ARGS}} = build ]; then docker compose -f docker/docker-compose.dev.yml --env-file app/.env -p kba-backend{{.CLI_ARGS}} --no-cache; fi
+      - if [ {{.CLI_ARGS}} = up ]; then docker compose -f docker/docker-compose.dev.yml --env-file app/.env -p kba-backend {{.CLI_ARGS}} -d; fi
+      - if [ {{.CLI_ARGS}} = down ]; then docker compose -f docker/docker-compose.dev.yml --env-file app/.env -p kba-backend {{.CLI_ARGS}}; fi
 
   generate-key-pair:
     desc: Generates a ES256 private and public key pair for the backend

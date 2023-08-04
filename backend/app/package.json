@@ -6,7 +6,7 @@
     "dev": "nodemon -w src -e ts -x \"node ../modules/esfasty/index.js && yarn start\"",
     "build": "node ../modules/esfasty/index.js",
     "start": "node dist/server.js",
-    "init": "yarn prisma generate",
+    "init": "yarn prisma db push",
     "lint": "yarn lint:typescript & yarn lint:prettier & yarn lint:eslint",
     "lint:typescript": "tsc",
     "lint:prettier": "prettier --ignore-path ../.gitignore --write --plugin-search-dir . --check .",

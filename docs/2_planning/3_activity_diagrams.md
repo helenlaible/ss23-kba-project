@@ -27,7 +27,7 @@ endif
 stop
 @enduml
 ```
-**Patiententransportplan bearbeiten**
+**Patiententransportplan bearbeiten - Helen Laible**
 ```plantuml Patiententransportplan bearbeiten
 
 @startuml

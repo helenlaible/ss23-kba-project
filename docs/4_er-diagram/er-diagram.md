@@ -241,7 +241,7 @@ extern_arzt }|--|{ befund
 @enduml
 ```
 
-**Finalversion of our ER-diagram**
+**Final version of our ER-diagram**
 
 ```plantuml ER-diagram
 @startuml

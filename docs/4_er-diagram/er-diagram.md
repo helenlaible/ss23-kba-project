@@ -5,13 +5,21 @@
 ```plantuml Legend
 @startuml
 
-| Art              |  Symbol  |
----------------------------------
-| Eine oder Keine  |   |o--   |
-| Exakt Eine 	   |   ||--   | 
-| Keine oder Viele |   }o--   |
-| Eine oder Viele  |   }|--   |
----------------------------------
+!define MULTIPLICITY_ONE_OR_NONE  "1 oder 0"
+!define MULTIPLICITY_EXACTLY_ONE  "1"
+!define MULTIPLICITY_ZERO_OR_MANY "0..*"
+!define MULTIPLICITY_ONE_OR_MANY  "1..*"
+
+class Art {
+}
+
+class Symbol {
+}
+
+Art }o--o{ Symbol : MULTIPLICITY_ONE_OR_NONE
+Art }|--|| Symbol : MULTIPLICITY_EXACTLY_ONE
+Art }o--|| Symbol : MULTIPLICITY_ZERO_OR_MANY
+Art }|--|{ Symbol : MULTIPLICITY_ONE_OR_MANY
 
 @enduml
 ```

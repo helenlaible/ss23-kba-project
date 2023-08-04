@@ -55,4 +55,5 @@ Konfigurationen entsprechend den Unternehmensrichtlinien, den technischen Anford
 **Offene Leistungen (Patient:innen)**
 Offene Leistungen bezieht sich auf medizinische oder gesundheitsbezogene Dienstleistungen oder Leistungen, die Patient:innen noch zur Verfügung stehen oder noch ausstehen. Diese Leistungen können verschiedene Aspekte der Gesundheitsversorgung umfassen und können sowohl in stationären als auch in ambulanten Einstellungen erbracht werden.
 
-
+**Personalperformance-Daten abrufen (Geschäftsführer:innen)** 
+Personalperformance-Daten abrufen ermöglicht dem Geschäftsführer den Zugriff auf die Leistungsdaten von Mitarbeitern, Geräten und Abteilungen zu haben. Dadurch können Überwachungszwecke erfüllt werden, um die Gesamteffizienz des Krankenhauses zu steigern.

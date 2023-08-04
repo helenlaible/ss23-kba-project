@@ -262,48 +262,36 @@ stop
 @startuml
 start
 
-fork
+split
   :Dokumente erstellen;
-  split
     :Dokumententyp auswählen;
     :Dokumenteninhalte erfassen;
     :Metadaten hinzufügen;
-  end split
-fork again
+split again
   :Dokumente bearbeiten;
-  split
     :Dokument auswählen;
     :Änderungen vornehmen;
     :Änderungen speichern;
-  end split
-fork again
+split again
   :Dokumente löschen;
-  split
     :Dokument auswählen;
     :Bestätigung für das Löschen erhalten;
     :Dokument löschen;
-  end split
-fork again
+split again
   :Dokumente organisieren;
-  split
     :Dokumente in Kategorien/Ordner sortieren;
     :Metadaten aktualisieren;
-  end split
-fork again
+split again
   :Dokumente suchen;
-  split
     :Suchkriterien festlegen;
     :Dokumente nach Kriterien durchsuchen;
     :Suchergebnisse anzeigen;
-  end split
-fork again
+split again
   :Dokumente freigeben;
-  split
     :Dokument auswählen;
     :Freigabeberechtigungen festlegen;
     :Freigabe bestätigen;
-  end split
-end fork
+end split
 
 stop
 @enduml
@@ -314,7 +302,7 @@ stop
 @startuml
 start
 
-fork
+split
   :Kuratierte Diagnosedaten einsehen;
   split
     :Allgemeine Informationen einsehen;
@@ -325,18 +313,17 @@ fork
   split again
     :Medikation einsehen;
   end split
-fork again
+split again
     :Termine einsehen;
   split  
     :Arzttermine einsehen; 
   split again
     :Stationstermine einsehen;
   end split
-end fork
+end split
 
 stop
 @enduml
-
 ```
 
 **Offene Leistungen einsehen - Jann**
@@ -345,49 +332,49 @@ stop
 start
 
 :Offene Leistungen einsehen;
-fork
+split
   if (Geplante Arzttermine einsehen?) then (ja)
     :Geplante Arzttermine anzeigen;
   else (nein)
     :Keine geplanten Arzttermine;
   endif
-fork again
+split again
   if (Laboruntersuchungen einsehen?) then (ja)
     :Laboruntersuchungen anzeigen;
   else (nein)
     :Keine Laboruntersuchungen;
   endif
-fork again
+split again
   if (Medizinische Prozeduren einsehen?) then (ja)
     :Medizinische Prozeduren anzeigen;
   else (nein)
     :Keine medizinischen Prozeduren;
   endif
-fork again
+split again
   if (Therapiesitzungen einsehen?) then (ja)
     :Therapiesitzungen anzeigen;
   else (nein)
     :Keine Therapiesitzungen;
   endif
-fork again
+split again
   if (Medikamentenverschreibungen einsehen?) then (ja)
     :Medikamentenverschreibungen anzeigen;
   else (nein)
     :Keine Medikamentenverschreibungen;
   endif
-fork again
+split again
   if (Diagnostische Untersuchungen einsehen?) then (ja)
     :Diagnostische Untersuchungen anzeigen;
   else (nein)
     :Keine diagnostischen Untersuchungen;
   endif
-fork again
+split again
   if (Nachsorge oder Folgetermine einsehen?) then (ja)
     :Nachsorge oder Folgetermine anzeigen;
   else (nein)
     :Keine Nachsorge oder Folgetermine;
   endif
-end fork
+end split
 stop
 @enduml
 ```

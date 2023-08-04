@@ -37,7 +37,8 @@ nurse-->UC1
 @enduml
 ```
 
-
+**Beschreibung für UseCase "Patientendaten pflegen"**
+Das Diagramm zeigt die Akteure "Interne Ärzt:innen", "Externe Ärzt:innen" und "Krankenpfleger:innen" sowie die Use Cases im Zusammenhang mit der Patientendatenpflege. Interne Ärzt:innen können Patientendaten pflegen (dazu gehört z.B. Stammdatenpfelge) und zusätzliche Daten hinzufügen. Externe Ärzt:innen können Patientendaten senden und neue Patienten anlegen. Krankenpfleger:innen können Patientendaten pflegen und zusätzliche Daten hinzufügen, wie Befunde. Zu Befunden gehören beispielsweise Röntgenbilder, Laborwerte oder MRT-Bilder. 
 **Termine pflegen - Antonia**
 
 ```plantuml Termine pflegen

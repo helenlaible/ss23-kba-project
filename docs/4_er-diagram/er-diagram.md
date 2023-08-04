@@ -337,8 +337,9 @@ entity "Abteilung" as abteilung {
     Beschreibung
     Mitarbeiteranzahl
   + Spezialgebiet
-    Öffnungszeiten
     Ausstattung
+    Öffnungszeiten
+    Telefonnummer
     Extern/Intern
 }
 

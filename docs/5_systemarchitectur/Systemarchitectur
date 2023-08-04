@@ -10,44 +10,45 @@ Alle Funktionen und Komponenten sind in ein einzigen Systemabbild integriert.
 Die monolithische Architektur hat eine geringere Komplexzität, da alle Funktionen in einer Anwendung zusammengefasst sind.
 
 Vorteile:
-- Geringere Komplexzität: Da alles in einer Anwendung gebündelt ist, sind die Entwicklungs- und Bereitstellungsprozesse konfliktfreier.
-- Geringere (interner) Netzwerklatenz: Alle Funktionen können direkt miteinander kommunizieren, da sie innerhalb einer Anwendung laufen.
+- Geringere Komplexzität: Da alle Komponenten und Funktionen unter einem Dach vereint sind, haben Entwickler eine einheitliche Sicht auf das Gesamtsystem. Die Entwicklung und Bereitstellung von Anwendungen wird dadurch in vielen Fällen vereinfacht.
+- Kommunikation: Da alle Teile der Anwendung innerhalb des gleichen Systems laufen, können sie ohne den Einsatz von Netzwerkprotokollen effizient kommunizieren. Dies kann zu einer geringeren internen Netzwerklatenz führen und somit die Gesamtleistung der Anwendung verbessern.
 
 Herausforderungen:
-- Skalierbarkeit: Es kann schwierig sein, das System effizient zu skalieren, da eine monolithische Anwendung als Ganzes skaliert werden muss.
-- Wartung und Erweiterung: Änderungen an einer Komponente können das gesamte System beeinflussen, was die Wartung und Erweiterung erschwert.
-- Code-Wiederverwendung: Die Wiederverwendung von Code in einer monolithischen Architektur kann problematisch sein, da viele Abhängigkeiten vorhanden sind.
-
+- Skalierbarkeit: Eine der größten Herausforderungen monolithischer Architekturen ist die Skalierbarkeit. Um die Leistung zu verbessern oder mehr Benutzer zu bedienen, muss das gesamte System skaliert werden und nicht nur die Komponenten, die die größte Last tragen. Dies kann zu einer Verschwendung von Ressourcen und damit zu höheren Kosten führen.
+- Wartung und Erweiterung: Da sich jede Änderung an einer Komponente auf das gesamte System auswirken kann, kann die Wartung und Erweiterung einer monolithischen Anwendung komplex und zeitaufwändig sein. Außerdem ist die Gefahr größer, dass eine kleine Änderung unerwartete Auswirkungen auf andere Teile des Systems hat.
+- Code-Wiederverwendung: In einer monolithischen Architektur kann es schwierig sein, Code wiederzuverwenden oder Module zu erstellen, die in anderen Projekten verwendet werden können. Die Anwendung ist so eng miteinander verknüpft, dass es oft schwierig ist, Komponenten zu entfernen oder hinzuzufügen.
 
 ** Microservices-Architektur: **
-Die Microservices-Architektur ist ein moderner Ansatz zur Entwicklung von Softwareanwendungen, der das System in kleinere, unabhängige Services aufteilt. 
-Jeder Service ist für eine spezifische Funktion oder Aufgabe verantwortlich und kann unabhängig entwickelt, bereitgestellt und skaliert werden.
-Die Kommunikation zwischen den Services erfolgt in der Regel über APIs (Application Programming Interfaces).
+Die Microservice-Architektur ist ein Ansatz für die Entwicklung von Softwaresystemen, bei dem die Anwendung als eine Sammlung kleiner, autonomer und modularer Dienste konzipiert wird, von denen jeder einen bestimmten Geschäftsprozess abdeckt. Jeder dieser Dienste kann unabhängig von den anderen entwickelt, bereitgestellt, skaliert und gewartet werden. Jeder Microservice läuft in seinem eigenen Prozess und kommuniziert typischerweise mit anderen Services über definierte APIs und Protokolle, meist HTTP/REST oder asynchrone Messaging-Protokolle.
+
+Im Kontext eines Krankenhaussystems könnte es beispielsweise separate Microservices für die Patientenaufnahme, die Diagnose und die Abrechnung geben. Jeder dieser Dienste hätte seine eigene Datenbank und Geschäftslogik und könnte unabhängig aktualisiert und skaliert werden.
 
 Vorteile:
-- Skalierbarkeit: Durch die Unabhängigkeit der Services können einzelne Services je nach Bedarf skaliert werden, was eine effiziente Nutzung von Ressourcen ermöglicht.
-- Flexibilität: Änderungen an einem Service beeinträchtigen die anderen nicht, was die Wartung und Erweiterung erleichtert.
+- Skalierbarkeit: Da jeder Dienst unabhängig skaliert werden kann, kann das System effizienter genutzt und angepasst werden. Beispielsweise könnte ein Krankenhaussystem mehr Ressourcen für den Abrechnungsdienst bereitstellen, wenn das Monatsende naht, ohne dass andere Dienste skaliert werden müssen.
+- Unabhängige Entwicklung und Bereitstellung: Da jeder Dienst unabhängig ist, können Teams an verschiedenen Diensten gleichzeitig arbeiten, und Updates können ohne Beeinträchtigung der gesamten Anwendung durchgeführt werden.
 - Technologievielfalt: Verschiedene Services können mit verschiedenen Technologien entwickelt werden, was die Flexibilität erhöht.
+- Fehlerisolierung: Da jeder Dienst in einem eigenen Prozess abläuft, kann sich ein Fehler in einem Dienst nicht direkt auf andere Dienste auswirken. Dies kann die Ausfallsicherheit und Zuverlässigkeit des Systems erhöhen.
 
 Herausforderungen:
 
-- Komplexität: Die Kommunikation zwischen den Services und das Management verteilter Systeme erfordern eine effektive DevOps-Kultur und Infrastruktur.
-- Latenz: Da die Services über das Netzwerk kommunizieren, kann die Latenzzeit erhöht sein, im Vergleich zur monolithischen Architektur.
+- Komplexität: Die Verwaltung einer Vielzahl von Diensten kann komplex sein, und Themen wie Diensterkennung, verteilte Datenverwaltung und Kommunikation zwischen Diensten erfordern sorgfältige Planung und Koordination.
+- Netzwerklatenz und -overhead: Da die Dienste miteinander kommunizieren müssen, oft über das Netzwerk, kann dies zu einer erhöhten Latenz und einem erhöhten Overhead führen.
+- Datenintegrität: Da jeder Dienst seine eigene Datenbank hat, kann es eine Herausforderung sein, die Konsistenz der Daten im gesamten System zu gewährleisten.
 
 
 ** Schichtenarchitektur: ** 
-Die Schichtenarchitektur ist ein strukturelles Architekturmuster, das Softwareanwendungen in verschiedene Schichten oder Ebenen unterteilt. 
-Jede Schicht erfüllt spezifische Funktionen und interagiert nur mit den benachbarten Schichten. 
-Die Schichtenarchitektur verbessert die Modularität und Wartbarkeit einer Anwendung, da jede Schicht unabhängig von den anderen entwickelt und ausgetauscht werden kann, solange die Schnittstellen erhalten bleiben.
+Die Schichtenarchitektur ist ein gängiger Ansatz in der Softwareentwicklung, um die Struktur und die Komponenten einer Anwendung zu organisieren. In einer Schichtenarchitektur ist die Anwendung in horizontale Ebenen oder "Schichten" unterteilt, wobei jede Schicht eine bestimmte Art von Aufgabe ausführt und Dienste für die darüber liegenden Schichten bereitstellt. Jede Schicht kommuniziert nur mit der darunter- und darüberliegenden Schicht, was zur Entkopplung und Modularität der Komponenten beiträgt. Dies ermöglicht eine flexiblere Entwicklung und Wartung, da Änderungen in einer Schicht die anderen Schichten nicht direkt beeinflussen.
 
 Vorteile:
-- Trennung der Verantwortlichkeiten: Jede Schicht hat spezifische Aufgaben, was die Lesbarkeit und Verständlichkeit des Codes verbessert.
+- Trennung der Verantwortlichkeiten: Jede Schicht hat eine klare und spezifische Aufgabe. Dies erleichtert das Verständnis und die Wartung der Anwendung.
 - Wartbarkeit: Änderungen in einer Schicht beeinträchtigen nicht die anderen Schichten, was die Wartung und Erweiterung erleichtert.
 - Modularität: Die Schichtenarchitektur ermöglicht eine klare Trennung von Funktionen und erleichtert die Wiederverwendung von Code.
+- Einfachheit der Entwicklung: Die Entwickler können sich auf eine bestimmte Schicht konzentrieren, ohne sich um die Details der anderen Schichten kümmern zu müssen.
+- Wiederverwendbarkeit und Erstezbarkeit: Da jede Schicht unabhängig von den anderen ist, können Teile der Anwendung wiederverwendet oder ausgetauscht werden, ohne dass die gesamte Anwendung neu geschrieben werden muss.
 
 Herausforderungen:
-- Abstraktionskosten: Die Verwendung mehrerer Schichten kann eine zusätzliche Abstraktionsebene hinzufügen, die die Leistung beeinträchtigen könnte.
-- Über-Engineering: Bei kleinen Projekten kann eine vollständige Schichtenarchitektur als übertrieben erscheinen und unnötige Komplexität einführen.
+- Abstraktionskosten: Da jede Anforderung mehrere Schichten durchlaufen muss, kann dies die Gesamtleistung der Anwendung beeinflussen.
+- Über-Engineering: Obwohl das Schichtenmodell die Komplexität innerhalb jeder Schicht reduziert, kann die Gesamtkomplexität der Anwendung durch die Anzahl der Schichten und die Notwendigkeit der Kommunikation zwischen den Schichten erhöht werden.
 
 
 ** Warum haben wir uns für ... entschieden **

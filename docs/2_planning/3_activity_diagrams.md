@@ -1,5 +1,34 @@
 # Activity Diagrams
 
+**Termine bearbeiten - Antonia Geschke**
+```plantuml Termine bearbeiten
+@startuml
+start
+
+:Terminübersicht ansehen;
+
+:Entscheidung treffen;
+if (Termin eintragen?) then (Ja)
+  :Termin eintragen;
+else (Nein)
+  if (Termin verschieben?) then (Ja)
+    :Termin verschieben;
+  else (Nein)
+    if (Termin absagen?) then (Ja)
+      :Termin absagen;
+    endif
+  endif
+endif
+
+:Termin bestätigen;
+
+:Terminübersicht ansehen;
+
+stop
+@enduml
+```
+
+
 **Backlog bearbeiten - Lino Becht**
 
 ```plantuml Backlog bearbeiten

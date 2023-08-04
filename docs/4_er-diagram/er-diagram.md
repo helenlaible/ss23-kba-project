@@ -339,6 +339,7 @@ entity "Abteilung" as abteilung {
   + Spezialgebiet
     Öffnungszeiten
     Ausstattung
+    Extern/Intern
 }
 
 entity "Backlog" as backlog {

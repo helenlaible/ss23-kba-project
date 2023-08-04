@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # FAQ
 
 > Wie genau ist der Stand der Digitalisierung in den verschiedenen Einrichtungen. Dies muss im Vorfeld geklärt werden. Gibt es schon konkrete Lösungen, Vorschriften, Daten, Ansprechpartner usw.?

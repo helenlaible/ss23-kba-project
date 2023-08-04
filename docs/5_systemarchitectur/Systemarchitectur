@@ -1,0 +1,53 @@
+# Systemarchitectur
+
+** Welche Systemarchitektur stehen zur Auswahl?**
+
+
+** Monolithisches Architekturmodell: **
+Das monolithische Architekturmodell ist ein traditioneller Ansatz zur Entwicklung von Softwareanwendungen. 
+Hierbei wird das gesamte Krankenhaussystem als eine einzige, zusammenhängende Anwendung entwickelt und bereitgestellt. 
+Alle Funktionen und Komponenten sind in ein einzigen Systemabbild integriert. 
+Die monolithische Architektur hat eine geringere Komplexzität, da alle Funktionen in einer Anwendung zusammengefasst sind.
+
+Vorteile:
+- Geringere Komplexzität: Da alles in einer Anwendung gebündelt ist, sind die Entwicklungs- und Bereitstellungsprozesse konfliktfreier.
+- Geringere (interner) Netzwerklatenz: Alle Funktionen können direkt miteinander kommunizieren, da sie innerhalb einer Anwendung laufen.
+
+Herausforderungen:
+- Skalierbarkeit: Es kann schwierig sein, das System effizient zu skalieren, da eine monolithische Anwendung als Ganzes skaliert werden muss.
+- Wartung und Erweiterung: Änderungen an einer Komponente können das gesamte System beeinflussen, was die Wartung und Erweiterung erschwert.
+- Code-Wiederverwendung: Die Wiederverwendung von Code in einer monolithischen Architektur kann problematisch sein, da viele Abhängigkeiten vorhanden sind.
+
+
+** Microservices-Architektur: **
+Die Microservices-Architektur ist ein moderner Ansatz zur Entwicklung von Softwareanwendungen, der das System in kleinere, unabhängige Services aufteilt. 
+Jeder Service ist für eine spezifische Funktion oder Aufgabe verantwortlich und kann unabhängig entwickelt, bereitgestellt und skaliert werden.
+Die Kommunikation zwischen den Services erfolgt in der Regel über APIs (Application Programming Interfaces).
+
+Vorteile:
+- Skalierbarkeit: Durch die Unabhängigkeit der Services können einzelne Services je nach Bedarf skaliert werden, was eine effiziente Nutzung von Ressourcen ermöglicht.
+- Flexibilität: Änderungen an einem Service beeinträchtigen die anderen nicht, was die Wartung und Erweiterung erleichtert.
+- Technologievielfalt: Verschiedene Services können mit verschiedenen Technologien entwickelt werden, was die Flexibilität erhöht.
+
+Herausforderungen:
+
+- Komplexität: Die Kommunikation zwischen den Services und das Management verteilter Systeme erfordern eine effektive DevOps-Kultur und Infrastruktur.
+- Latenz: Da die Services über das Netzwerk kommunizieren, kann die Latenzzeit erhöht sein, im Vergleich zur monolithischen Architektur.
+
+
+** Schichtenarchitektur: ** 
+Die Schichtenarchitektur ist ein strukturelles Architekturmuster, das Softwareanwendungen in verschiedene Schichten oder Ebenen unterteilt. 
+Jede Schicht erfüllt spezifische Funktionen und interagiert nur mit den benachbarten Schichten. 
+Die Schichtenarchitektur verbessert die Modularität und Wartbarkeit einer Anwendung, da jede Schicht unabhängig von den anderen entwickelt und ausgetauscht werden kann, solange die Schnittstellen erhalten bleiben.
+
+Vorteile:
+- Trennung der Verantwortlichkeiten: Jede Schicht hat spezifische Aufgaben, was die Lesbarkeit und Verständlichkeit des Codes verbessert.
+- Wartbarkeit: Änderungen in einer Schicht beeinträchtigen nicht die anderen Schichten, was die Wartung und Erweiterung erleichtert.
+- Modularität: Die Schichtenarchitektur ermöglicht eine klare Trennung von Funktionen und erleichtert die Wiederverwendung von Code.
+
+Herausforderungen:
+- Abstraktionskosten: Die Verwendung mehrerer Schichten kann eine zusätzliche Abstraktionsebene hinzufügen, die die Leistung beeinträchtigen könnte.
+- Über-Engineering: Bei kleinen Projekten kann eine vollständige Schichtenarchitektur als übertrieben erscheinen und unnötige Komplexität einführen.
+
+
+** Warum haben wir uns für ... entschieden **

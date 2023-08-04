@@ -487,8 +487,8 @@ start
 :Leistungsüberprüfung durchführen;
 
 :Prüft die Leistung (Geräte, Abteilungen, Mitarbeitern);
-if (Gibt es Geräte/Abteilungen/Mitarbeiter mit geringer Leistung?) then (Ja)
-  :Markiert Geräte/Abteilungen/Mitarbeiter mit geringer Leistung;
+if (Gibt es Geräte/Abteilungen/Mitarbeiter mit geringer oder zu hohen Leistung?) then (Ja)
+  :Markiert Geräte/Abteilungen/Mitarbeiter mit geringer/ zu hoher Leistungen;
 endif
 
 :Erstellt einen Leistungsüberprüfungsbericht;

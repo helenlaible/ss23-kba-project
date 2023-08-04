@@ -327,7 +327,7 @@ stop
 ```
 
 **Offene Leistungen einsehen - Jann**
-```plantunml Offene Leistungen einsehen
+```plantuml Offene Leistungen einsehen
 @startuml
 start
 
@@ -375,6 +375,7 @@ split again
     :Keine Nachsorge oder Folgetermine;
   endif
 end split
+
 stop
 @enduml
 ```

@@ -71,7 +71,7 @@ Insgesamt bieten Microservices somit ein hohes Maß an Flexibilität, Skalierbar
 
 # Microservices
 
-**Backlog,Fehlerbericht,Medizinisches_Gerät - Lino Becht **
+**Backlog,Fehlerbericht,Medizinisches_Gerät - Lino Becht**
 
 ```plantuml Microservices 
 @startuml

@@ -52,3 +52,22 @@ Herausforderungen:
 
 
 ** Warum haben wir uns für ... entschieden **
+
+
+# Microservices
+```plantuml Microservices
+@startuml
+
+package "Microservices" {
+  node "Backlog" {
+    [Auftrag bearbeiten] - HTTP
+    [Auftrag ansehen] - HTTP
+
+    database "Database"{
+    }
+    HTTP --|> Database : Datenfluss
+  }
+}
+
+@enduml
+```

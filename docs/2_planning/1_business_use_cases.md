@@ -137,8 +137,7 @@ lb --> UC1
 ```plantuml
 @startuml
 left to right direction
-actor Geschäftsführer:innen
-
+actor Geschäftsführer
 rectangle "Geschäftsführer:innen" {
   (Überwachung der Krankenhausleistung) as UC1
   (Listen aller Leistungen verwalten) as UC2
@@ -152,8 +151,8 @@ rectangle "Geschäftsführer:innen" {
   UC1 <-- (Abteilungsanalyse) : <<extend>>
 }
 
-Geschäftsführer:innen -- UC1
-Geschäftsführer:innen --UC2
+Geschäftsführer -- UC1
+Geschäftsführer --UC2
 @enduml
 ```
 
@@ -161,9 +160,9 @@ Geschäftsführer:innen --UC2
 ```plantuml
 @startuml
 left to right direction
-actor Sekretär:innen
+actor Sekretäre
 
-rectangle "Sekretär:innen" {
+rectangle "Sekretär" {
   (Formulare/Berichte einreichen) as UC1
   (Patient:innen registrieren) as UC2
   (Erstellen von Terminen) as UC3
@@ -173,8 +172,8 @@ rectangle "Sekretär:innen" {
   UC2 -- UC4 : <<include>>
 }
 
-Sekretär:innen -- UC1
-Sekretär:innen -- UC2
+Sekretäre -- UC1
+Sekretäre -- UC2
 @enduml
 ```
 

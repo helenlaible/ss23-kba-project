@@ -162,7 +162,7 @@ Geschäftsführer --UC2
 left to right direction
 actor Sekretäre
 
-rectangle "Sekretär" {
+rectangle "Sekretäre" {
   (Formulare/Berichte einreichen) as UC1
   (Patient:innen registrieren) as UC2
   (Erstellen von Terminen) as UC3

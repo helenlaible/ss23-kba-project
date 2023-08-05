@@ -55,7 +55,7 @@ Herausforderungen:
 
 
 # Microservices
-```plantuml Microservices
+```plantuml Microservices - Lino Becht
 @startuml
 
 package "Microservices" {
@@ -70,22 +70,34 @@ package "Microservices" {
 
   node "Medizinische_Geräte" {
     [Untersuchungsergebnisse anzeigen] - HTTP2
-    [Fehlerbericht an externe Systemtechniker versenden] - HTTP2
+    [Untersuchungseinstellungen verwalten] - HTTP2
     database "Database2"{
       HTTP2 --> Database2 : Datenfluss
     }
   }
 
+  node "Fehlerbericht"{
+    [Fehlerbericht anzeigen] - HTTP3
+    [Fehlerbericht an externe Systemtechniker senden] - HTTP3
+    database "Database3"{
+      HTTP3 --> Database3 : Datenfluss
+    }
+  }
 
-left to right direction
+
+}
+
+
 Medizinisches_Gerät <-up- Database2 : Datenfluss
+Medizinisches_Gerät <-up- Database3 : Datenfluss
 
 package "API"{
   [Sinnvolle API-Namen ausdenken?]
 }
 
 Backlog -left- API
-Medizinische_Geräte -up- API
+Medizinische_Geräte -left- API
+Fehlerbericht -left- API
 
 @enduml
 ```

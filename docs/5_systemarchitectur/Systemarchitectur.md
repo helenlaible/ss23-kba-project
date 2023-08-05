@@ -7,10 +7,10 @@
 Das monolithische Architekturmodell ist ein traditioneller Ansatz zur Entwicklung von Softwareanwendungen. 
 Hierbei wird das gesamte Krankenhaussystem als eine einzige, zusammenhängende Anwendung entwickelt und bereitgestellt. 
 Alle Funktionen und Komponenten sind in ein einzigen Systemabbild integriert. 
-Die monolithische Architektur hat eine geringere Komplexzität, da alle Funktionen in einer Anwendung zusammengefasst sind.
+Die monolithische Architektur hat eine geringere Komplexität, da alle Funktionen in einer Anwendung zusammengefasst sind.
 
 Vorteile:
-- Geringere Komplexzität: Da alle Komponenten und Funktionen unter einem Dach vereint sind, haben Entwickler eine einheitliche Sicht auf das Gesamtsystem. Die Entwicklung und Bereitstellung von Anwendungen wird dadurch in vielen Fällen vereinfacht.
+- Geringere Komplexität: Da alle Komponenten und Funktionen unter einem Dach vereint sind, haben Entwickler eine einheitliche Sicht auf das Gesamtsystem. Die Entwicklung und Bereitstellung von Anwendungen wird dadurch in vielen Fällen vereinfacht.
 - Kommunikation: Da alle Teile der Anwendung innerhalb des gleichen Systems laufen, können sie ohne den Einsatz von Netzwerkprotokollen effizient kommunizieren. Dies kann zu einer geringeren internen Netzwerklatenz führen und somit die Gesamtleistung der Anwendung verbessern.
 
 Herausforderungen:

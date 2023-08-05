@@ -19,7 +19,8 @@ Herausforderungen:
 - Code-Wiederverwendung: In einer monolithischen Architektur kann es schwierig sein, Code wiederzuverwenden oder Module zu erstellen, die in anderen Projekten verwendet werden können. Die Anwendung ist so eng miteinander verknüpft, dass es oft schwierig ist, Komponenten zu entfernen oder hinzuzufügen.
 
 ** Microservices-Architektur: **
-Die Microservice-Architektur ist ein Ansatz für die Entwicklung von Softwaresystemen, bei dem die Anwendung als eine Sammlung kleiner, autonomer und modularer Dienste konzipiert wird, von denen jeder einen bestimmten Geschäftsprozess abdeckt. Jeder dieser Dienste kann unabhängig von den anderen entwickelt, bereitgestellt, skaliert und gewartet werden. Jeder Microservice läuft in seinem eigenen Prozess und kommuniziert typischerweise mit anderen Services über definierte APIs und Protokolle, meist HTTP/REST oder asynchrone Messaging-Protokolle.
+Die Microservice-Architektur ist ein Ansatz für die Entwicklung von Softwaresystemen, bei dem die Anwendung als eine Sammlung kleiner, autonomer und modularer Dienste konzipiert wird, von denen jeder einen bestimmten Geschäftsprozess abdeckt. Jeder dieser Dienste kann unabhängig von den anderen entwickelt,
+bereitgestellt, skaliert und gewartet werden. Jeder Microservice läuft in seinem eigenen Prozess und kommuniziert typischerweise mit anderen Services über definierte APIs und Protokolle, meist HTTP/REST oder asynchrone Messaging-Protokolle.
 
 Im Kontext eines Krankenhaussystems könnte es beispielsweise separate Microservices für die Patientenaufnahme, die Diagnose und die Abrechnung geben. Jeder dieser Dienste hätte seine eigene Datenbank und Geschäftslogik und könnte unabhängig aktualisiert und skaliert werden.
 
@@ -37,7 +38,9 @@ Herausforderungen:
 
 
 ** Schichtenarchitektur: ** 
-Die Schichtenarchitektur ist ein gängiger Ansatz in der Softwareentwicklung, um die Struktur und die Komponenten einer Anwendung zu organisieren. In einer Schichtenarchitektur ist die Anwendung in horizontale Ebenen oder "Schichten" unterteilt, wobei jede Schicht eine bestimmte Art von Aufgabe ausführt und Dienste für die darüber liegenden Schichten bereitstellt. Jede Schicht kommuniziert nur mit der darunter- und darüberliegenden Schicht, was zur Entkopplung und Modularität der Komponenten beiträgt. Dies ermöglicht eine flexiblere Entwicklung und Wartung, da Änderungen in einer Schicht die anderen Schichten nicht direkt beeinflussen.
+Die Schichtenarchitektur ist ein gängiger Ansatz in der Softwareentwicklung, um die Struktur und die Komponenten einer Anwendung zu organisieren.
+In einer Schichtenarchitektur ist die Anwendung in horizontale Ebenen oder "Schichten" unterteilt, wobei jede Schicht eine bestimmte Art von Aufgabe
+ausführt und Dienste für die darüber liegenden Schichten bereitstellt. Jede Schicht kommuniziert nur mit der darunter- und darüberliegenden Schicht, was zur Entkopplung und Modularität der Komponenten beiträgt. Dies ermöglicht eine flexiblere Entwicklung und Wartung, da Änderungen in einer Schicht die anderen Schichten nicht direkt beeinflussen.
 
 Vorteile:
 - Trennung der Verantwortlichkeiten: Jede Schicht hat eine klare und spezifische Aufgabe. Dies erleichtert das Verständnis und die Wartung der Anwendung.
@@ -51,8 +54,20 @@ Herausforderungen:
 - Über-Engineering: Obwohl das Schichtenmodell die Komplexität innerhalb jeder Schicht reduziert, kann die Gesamtkomplexität der Anwendung durch die Anzahl der Schichten und die Notwendigkeit der Kommunikation zwischen den Schichten erhöht werden.
 
 
-** Warum haben wir uns für ... entschieden **
-
+** Warum haben wir uns für Microservices entschieden **
+Die Entscheidung für ein Microservices-System in einem Krankenhaus-IT-System bietet eine Reihe von Vorteilen,
+die mit den spezifischen und komplexen Anforderungen eines solchen Umfelds zusammenhängen. Die Skalierbarkeit,
+die durch die Möglichkeit, jede Komponente des Systems unabhängig zu skalieren, gewährleistet wird,
+ermöglicht eine effiziente Ressourcennutzung für verschiedene Dienste wie Patientenaktenverwaltung,
+Terminplanung und medizinische Bildgebung.
+Die Unabhängigkeit der Microservices erleichtert auch die parallele Entwicklung, was die unabhängige Arbeit verschiedener Teams fördert.
+Diese Unabhängigkeit trägt auch zur Fehlertoleranz bei, da der Ausfall eines Dienstes nicht notwendigerweise die anderen beeinträchtigt, was in einem Krankenhaus ein kritischer Aspekt ist.
+Die technologische Flexibilität, die sich aus der Möglichkeit ergibt, für jeden Service die am besten geeignete Technologie zu wählen, bietet in einem komplexen System erhebliche Vorteile. Die schnelle Einführung neuer Funktionen und Verbesserungen wird durch die Unabhängigkeit
+der Microservices in Entwicklung, Test und Bereitstellung ermöglicht.
+Die Integration mit Drittanbietern wird vereinfacht, da jeder Microservice als unabhängige Schnittstelle zu externen Systemen fungieren kann. Gezielte Compliance erleichtert die Anpassung an strenge gesetzliche Vorschriften im Gesundheitswesen.
+Die Isolierung von Microservices kann auch die Sicherheit verbessern, da sich eine Sicherheitsverletzung in einem Bereich des Systems nicht auf andere Bereiche ausbreitet - ein entscheidender Vorteil, wenn der Datenschutz von höchster Bedeutung ist.
+Eine einfache Migration und Modernisierung wird durch die Unabhängigkeit der Microservices unterstützt, die es ermöglicht, Teile des Systems zu aktualisieren oder zu migrieren, ohne das gesamte System neu entwerfen zu müssen.
+Insgesamt bieten Microservices somit ein hohes Maß an Flexibilität, Skalierbarkeit, Robustheit und Anpassbarkeit, was sie zu einer idealen Architektur für ein Krankenhaus-IT-System macht, das eine Vielzahl komplexer, interagierender Anforderungen effizient erfüllen muss.
 
 # Microservices
 ```plantuml Microservices - Lino Becht
@@ -101,3 +116,49 @@ Fehlerbericht -left- API
 
 @enduml
 ```
+
+```plantuml Microservices - Jann Lucas Pischke
+@startuml
+
+package "Microservices" {
+node "Systemüberwachung" {
+  [Ressourcen überwachen] -right- HTTP1
+  [Benachrichtigungen versenden] -left- HTTP1
+  database "Database" as db1
+  HTTP1 -down- db1: Datenfluss
+}
+node "Benutzerverwaltung" {
+  [Konroverwaltung] -down- HTTP2
+  [Passwortverwaltung] -down- HTTP2
+  [Richtlinienverwaltung] - HTTP2
+  [Rechteverwaltung] -left- HTTP2
+  database "Datenbank" as db2
+  HTTP2 --> db2 : Datenfluss
+}
+node "Konfigurationsdatenverwaltung" {
+  [Konfigurationsdaten bearbeiten] -right- HTTP3
+  [Konfigurationsdaten einsehen] -left- HTTP3
+  database "Datenbank" as db3
+  HTTP3 --> db3 : Datenfluss
+}
+node "Dokumentationsverwaltung" {
+  [Dokumente bearbeiten] -right- HTTP4
+  [Dokumente einsehen] -left- HTTP4
+  database "Datenbank" as db4
+  HTTP4 --> db4 : Datenfluss
+}
+
+}
+
+Telmetrie_Module -up-> db1
+
+package "API" {
+  [API Name]
+}
+
+Systemüberwachung - API
+Benutzerverwaltung - API
+Konfigurationsdatenverwaltung - API
+Dokumentationsverwaltung - API
+
+@enduml

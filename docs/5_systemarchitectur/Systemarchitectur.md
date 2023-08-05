@@ -70,7 +70,10 @@ Eine einfache Migration und Modernisierung wird durch die Unabhängigkeit der Mi
 Insgesamt bieten Microservices somit ein hohes Maß an Flexibilität, Skalierbarkeit, Robustheit und Anpassbarkeit, was sie zu einer idealen Architektur für ein Krankenhaus-IT-System macht, das eine Vielzahl komplexer, interagierender Anforderungen effizient erfüllen muss.
 
 # Microservices
-```plantuml Microservices - Lino Becht
+
+**Backlog,Fehlerbericht,Medizinisches_Gerät - Lino Becht **
+
+```plantuml Microservices 
 @startuml
 
 package "Microservices" {

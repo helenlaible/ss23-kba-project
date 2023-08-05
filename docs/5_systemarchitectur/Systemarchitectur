@@ -60,14 +60,32 @@ Herausforderungen:
 
 package "Microservices" {
   node "Backlog" {
-    [Auftrag bearbeiten] - HTTP
-    [Auftrag ansehen] - HTTP
+    [Auftrag bearbeiten] - HTTP1
+    [Auftrag ansehen] - HTTP1
 
-    database "Database"{
+    database "Database1"{
     }
-    HTTP --|> Database : Datenfluss
+      HTTP1 --> Database1 : Datenfluss
   }
+
+  node "Medizinische_Geräte" {
+    [Untersuchungsergebnisse anzeigen] - HTTP2
+    [Fehlerbericht an externe Systemtechniker versenden] - HTTP2
+    database "Database2"{
+      HTTP2 --> Database2 : Datenfluss
+    }
+  }
+
+
+left to right direction
+Medizinisches_Gerät <-up- Database2 : Datenfluss
+
+package "API"{
+  [Sinnvolle API-Namen ausdenken?]
 }
+
+Backlog -left- API
+Medizinische_Geräte -up- API
 
 @enduml
 ```
